@@ -4,9 +4,13 @@
 #     starts up.  It does two things: First, it tests to see if network
 #     functionality has been configured.  Depending on what it finds it starts
 #     Firefox with one of two HTML files, one for success and one for failure.
+#
+#     Note that Raspbian doesn't package Firefox/Iceweasel, but a much smaller
+#     and more nimble browser called Midori (thus sayeth Wikipedia).  So,
+#     I've patched this script to call that browser instead.
 
 # Written for Project Byzantium.
-# By: The Doctor [412/724/301/703] [ZS|Media]
+# By: The Doctor [412/724/301/703] [ZS]
 # License: GPLv3
 
 # Set the global pass/fail flag.
@@ -52,9 +56,9 @@ if [ ! $FAKEDNS_PID ]; then
 # Depending on whether or not everything started up properly, run Firefox with
 # one of two HTML files as arguments.
 if [ $SUCCESS ]; then
-    firefox /srv/passfail/success.html &
+    midori /srv/passfail/success.html &
 else
-    firefox /srv/passfail/failure.html &
+    midori /srv/passfail/failure.html &
 fi
 
 # End.

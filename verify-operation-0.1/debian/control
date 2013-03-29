@@ -9,7 +9,7 @@ Vcs-Git: git://github.com/Byzantium/Byzantium.git
 
 Package: verify-operation
 Architecture: all
-Depends: iceweasel
+Depends: midori
 Description: Determines whether or not Byzantium autoconfiguration worked.
  These resources run whenever a user logs into a graphical interactive session
  on the ByzPi node and starts Firefox/Iceweasel with either a "Yay!" or "Nay.."
