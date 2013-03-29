@@ -1,4 +1,4 @@
-captive-portal (0.3-1) unstable; urgency=low
+captive-portal-daemon (0.3-1) unstable; urgency=low
 
   * Initial release.
   * This is the captive portal that wireless clients are snared by the first

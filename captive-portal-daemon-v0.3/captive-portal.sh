@@ -7,7 +7,7 @@
 # Written by Sitwon and The Doctor.
 # License: GPLv3
 
-IPTABLES=/usr/sbin/iptables
+IPTABLES=/sbin/iptables
 ARP=/sbin/arp
 
 # Set up the choice tree of options that can be passed to this script.
