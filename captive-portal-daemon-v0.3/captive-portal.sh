@@ -8,7 +8,7 @@
 # License: GPLv3
 
 IPTABLES=/sbin/iptables
-ARP=/sbin/arp
+ARP=/usr/sbin/arp
 
 # Set up the choice tree of options that can be passed to this script.
 case "$1" in
