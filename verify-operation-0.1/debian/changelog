@@ -1,0 +1,8 @@
+verify-operation (0.1-1) unstable; urgency=low
+
+  * Initial release.
+  * This is the script and collection of HTML that the user sees when they
+    log into a ByzPi node with an interactive X session.  It tells them if
+    autoconfiguration was successful or not.
+
+ -- The Doctor <drwho@virtadpt.net>  Thu, 28 Mar 2013 22:28:07 -0400

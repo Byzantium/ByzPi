@@ -1,4 +1,4 @@
-Source: verify_operation
+Source: verify-operation
 Section: unknown
 Priority: extra
 Maintainer: The Doctor <drwho@virtadpt.net>
@@ -7,7 +7,7 @@ Standards-Version: 3.8.4
 Homepage: http://project-byzantium.org/
 Vcs-Git: git://github.com/Byzantium/Byzantium.git
 
-Package: verify_operation
+Package: verify-operation
 Architecture: all
 Depends: iceweasel
 Description: Determines whether or not Byzantium autoconfiguration worked.
