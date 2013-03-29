@@ -18,3 +18,11 @@ file { '/srv/captiveportal/':
   source => 'puppet://srv-captiveportal',
   recurse => true,
 }
+
+# Nodejs for etherpad
+
+package { [libc-ares2' 'libc6', 'libev4', 'libgcc1', 'libssl1.0.0',
+  'libstdc++6', 'libv8-3.8.9.20', 'zlib1g']
+  ensure     =>   'present',
+}
+class { 'nodejs': }
