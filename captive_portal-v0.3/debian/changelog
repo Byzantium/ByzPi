@@ -1,9 +1,7 @@
-autoconfigd (0.1-1) unstable; urgency=low
+captive-portal (0.3-1) unstable; urgency=low
 
   * Initial release.
-  * This is the automatic configuration daemon that I hacked while we were
-    in Red Hook last year.  It takes all of the configuration steps that used
-    to be in the control panel and automates them.  This script is called from
-    /etc/rc.local at boot-time.
+  * This is the captive portal that wireless clients are snared by the first
+    time they connect.
 
- -- The Doctor <drwho@virtadpt.net>  Thu, 28 Mar 2013 19:33:26 -0400
+ -- The Doctor <drwho@virtadpt.net>  Thu, 28 Mar 2013 21:25:09 -0400
