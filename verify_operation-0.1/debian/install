@@ -1,1 +1,2 @@
-byzantium_configd.py	/usr/bin
+verify_operation.sh	/etc/X11/Xsession.d/99verify_operation.sh
+passfail/		/srv

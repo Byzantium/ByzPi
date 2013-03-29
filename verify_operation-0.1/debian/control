@@ -1,4 +1,4 @@
-Source: autoconfigd
+Source: verify_operation
 Section: unknown
 Priority: extra
 Maintainer: The Doctor <drwho@virtadpt.net>
@@ -7,10 +7,10 @@ Standards-Version: 3.8.4
 Homepage: http://project-byzantium.org/
 Vcs-Git: git://github.com/Byzantium/Byzantium.git
 
-Package: autoconfigd
+Package: verify_operation
 Architecture: all
-Depends: python2.6, wireless-utils, iputils-arping, dnsmasq, captive-portal-daemon, olsrd
-Description: Byzantium node autoconfiguration daemon.
- This is the autoconfiguration daemon that runs at boot-time when Byzantium
- Linux starts up.  It configures the wireless interface and the TCP/IP stack
- for same.
+Depends: iceweasel
+Description: Determines whether or not Byzantium autoconfiguration worked.
+ These resources run whenever a user logs into a graphical interactive session
+ on the ByzPi node and starts Firefox/Iceweasel with either a "Yay!" or "Nay.."
+ page.
