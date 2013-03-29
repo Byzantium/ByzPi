@@ -9,19 +9,41 @@ It was downloaded from:
 Upstream Author(s):
 
     The Doctor [412/724/301/703][ZS] <drwho@virtadpt.net>
+    Ben the Pyrate <ben.mendis@gmail.com>
+    Haxwithaxe <me@haxwithaxe.net>
+    heffnercj@gmail.com
 
 Copyright:
 
     Copyright (C) 2012 The Doctor <drwho@virtadpt.net>
+    Copyright (C) 2012 Ben the Pyrate <ben.mendis@gmail.com>
+    Copyright (C) 2012 Haxwithaxe <me@haxwithaxe.net>
+    Copyright (C) 2011 heffnercj@gmail.com
 
 License:
 
-    GPLv3
+    GPLv3:
+        captive_portal.py
+        captive_portal.sh
+
+    MIT:
+        fake_dns.py (though Haxwithaxe reworked it)
 
 The Debian packaging is:
 
     Copyright (C) 2013 The Doctor <drwho@virtadpt.net>
+    Copyright (C) 2012 Ben the Pyrate <ben.mendis@gmail.com>
+    Copyright (C) 2012 Haxwithaxe <me@haxwithaxe.net>
 
-and is licensed under the GPL version 3,
+and is licensed under the GPL version 3 unless otherwise specified,
 see "/usr/share/common-licenses/GPL-3".
+
+Most of fake_dns.py was written by heffnercj@gmail.com.  Haxwithaxe reworked
+it.  It was originally gotten from here:
+
+	https://code.google.com/p/minidns/
+
+...and bears the MIT license, which you can read here:
+
+	http://opensource.org/licenses/mit-license.php
 

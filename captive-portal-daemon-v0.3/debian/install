@@ -1,1 +1,6 @@
-byzantium_configd.py	/usr/bin
+captive_portal.py	/usr/sbin
+captive-portal.sh	/usr/sbin
+fake_dns.py		/usr/sbin
+mop_up_dead_clients.py	/usr/sbin
+etc/			/
+srv/			/
