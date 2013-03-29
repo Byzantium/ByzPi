@@ -146,7 +146,7 @@ class CaptivePortal(object):
         logging.debug("Client's IP address: %s", clientip)
 
         # Set up the command string to add the client to the IP tables ruleset.
-        addclient = ['/usr/local/sbin/captive-portal.sh', 'add', clientip]
+        addclient = ['/usr/sbin/captive-portal.sh', 'add', clientip]
         if self.args.test:
             logging.debug("Command that would be executed:\n%s", addclient)
         else:
@@ -317,7 +317,7 @@ def setup_url_tree(args):
 
 def setup_iptables(args):
     # Initialize the IP tables ruleset for the node.
-    initialize_iptables = ['/usr/local/sbin/captive-portal.sh', 'initialize',
+    initialize_iptables = ['/usr/sbin/captive-portal.sh', 'initialize',
                            args.address, args.interface]
     iptables = 0
     if args.test:
@@ -329,7 +329,7 @@ def setup_iptables(args):
 
 def setup_reaper(test):
     # Start up the idle client reaper daemon.
-    idle_client_reaper = ['/usr/local/sbin/mop_up_dead_clients.py', '-m', '600',
+    idle_client_reaper = ['/usr/sbin/mop_up_dead_clients.py', '-m', '600',
                           '-i', '60']
     reaper = 0
     if test:
@@ -344,7 +344,7 @@ def setup_reaper(test):
 def setup_hijacker(args):
     # Start the fake DNS server that hijacks every resolution request with the
     # IP address of the client interface.
-    dns_hijacker = ['/usr/local/sbin/fake_dns.py', args.address]
+    dns_hijacker = ['/usr/sbin/fake_dns.py', args.address]
     hijacker = 0
     if args.test:
         logging.debug("Command that would start the fake DNS server:\n%s", ' '.join(dns_hijacker))
