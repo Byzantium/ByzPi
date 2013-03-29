@@ -1,0 +1,27 @@
+This work was packaged for Debian by:
+
+    The Doctor <drwho@virtadpt.net> on Thu, 28 Mar 2013 19:33:26 -0400
+
+It was downloaded from:
+
+    https://github.com/Byzantium/Byzantium
+
+Upstream Author(s):
+
+    The Doctor [412/724/301/703][ZS] <drwho@virtadpt.net>
+
+Copyright:
+
+    Copyright (C) 2012 The Doctor <drwho@virtadpt.net>
+
+License:
+
+    GPLv3
+
+The Debian packaging is:
+
+    Copyright (C) 2013 The Doctor <drwho@virtadpt.net>
+
+and is licensed under the GPL version 3,
+see "/usr/share/common-licenses/GPL-3".
+
