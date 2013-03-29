@@ -18,7 +18,7 @@ CACHEFILE = '/tmp/captive_portal-mopup.cache'
 STASHTO = 'ram' # options are 'ram','disk'
 MAXIDLESEC = 18000 # max idle time in seconds (18000s == 5hr)
 CHECKEVERY = 1800.0 # check every CHECKEVERY seconds for idle clients (1800s == 30min)
-IPTABLESCMD = ['/usr/sbin/iptables','-t','mangle','-L','internet','-n','-v']
+IPTABLESCMD = ['/sbin/iptables','-t','mangle','-L','internet','-n','-v']
 USAGE = '''[(-c|--cache) <cache file>]\n\t[(-s|--stashto) <disk|ram>]\n\t[(-m|--maxidle) <time before idle client expires in seconds>]\n\t[(-i|--checkinterval) <time between each check for idle clients in\n\t\tseconds>]'''
 
 # List of clients the daemon knows about.
