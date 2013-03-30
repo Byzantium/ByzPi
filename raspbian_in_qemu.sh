@@ -38,8 +38,8 @@ if [ ! -f $2 ]; then
     fi
 
 # Test to see if QEMU is installed.
-which qemu-system-arm 2>&1 /dev/null
-if [ $? -ne 0 ]; then
+which qemu-system-arm 1>/dev/null 2>/dev/null
+if [ $? -gt 0 ]; then
     echo "Error - qemu-system-arm executable not found."
     exit 1
     fi
