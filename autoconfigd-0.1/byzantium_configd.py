@@ -159,7 +159,7 @@ if len(wireless):
         addr = addr + str(random.randint(1, 254))
 
         # Use arping to see if anyone's claimed it.
-        arping = ['/sbin/arping', '-c 5', '-D', '-f', '-q', '-I', interface,
+        arping = ['/usr/bin/arping', '-c 5', '-D', '-f', '-q', '-I', interface,
                   addr]
         ip_in_use = subprocess.call(arping)
 
@@ -177,7 +177,7 @@ if len(wireless):
         addr = addr + str(random.randint(0, 254)) + '.1'
 
         # Use arping to see if anyone's claimed it.
-        arping = ['/sbin/arping', '-c 5', '-D', '-f', '-q', '-I', interface,
+        arping = ['/usr/bin/arping', '-c 5', '-D', '-f', '-q', '-I', interface,
                   addr]
         ip_in_use = subprocess.call(arping)
 
@@ -206,7 +206,7 @@ if len(wireless):
                commotion_netmask, 'dev', interface]
 
     # Start the captive portal daemon on that interface.
-    captive_portal_daemon = ['/usr/local/sbin/captive_portal.py', '-i',
+    captive_portal_daemon = ['/usr/sbin/captive_portal.py', '-i',
                              interface, '-a', client_ip]
     captive_portal_return = 0
     captive_portal_return = subprocess.Popen(captive_portal_daemon)
