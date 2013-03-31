@@ -6,6 +6,8 @@ autoconfigd (0.1-2) unstable; urgency=low
 
  -- The Doctor <drwho@virtadpt.net>  Sun, 31 Mar 2013 16:55:26 -0400
 
+autoconfigd (0.1-1) unstable; urgency=low
+
   * Initial release.
   * This is the automatic configuration daemon that I hacked while we were
     in Red Hook last year.  It takes all of the configuration steps that used
