@@ -1,4 +1,10 @@
-autoconfigd (0.1-1) unstable; urgency=low
+autoconfigd (0.1-2) unstable; urgency=low
+
+  * Updated daemon to latest stable version from Git.
+  * Patched for Debian's idiosyncracies.
+  * Updating list of dependencies because I got a few things wrong.
+
+ -- The Doctor <drwho@virtadpt.net>  Sun, 31 Mar 2013 16:55:26 -0400
 
   * Initial release.
   * This is the automatic configuration daemon that I hacked while we were

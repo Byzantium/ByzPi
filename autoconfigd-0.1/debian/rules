@@ -10,6 +10,3 @@
 
 %:
 	dh $@ 
-
-#override_dh_usrlocal:
-
