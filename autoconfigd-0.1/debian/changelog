@@ -1,5 +1,6 @@
 autoconfigd (0.1-2) unstable; urgency=low
 
+  * Backported the "Can't find any wireless interfaces" error handler.
   * Updated daemon to latest stable version from Git.
   * Patched for Debian's idiosyncracies.
   * Updating list of dependencies because I got a few things wrong.

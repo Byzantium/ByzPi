@@ -9,7 +9,7 @@ Vcs-Git: git://github.com/Byzantium/Byzantium.git
 
 Package: captive-portal-daemon
 Architecture: all
-Depends: python2.6, python-cherrypy, python-mako 
+Depends: python, python-cherrypy, python-mako 
 Description: Byzantium captive portal daemon.
  This is the captive portal daemon that grabs wireless clients when they
  connect and forces them to click through.
