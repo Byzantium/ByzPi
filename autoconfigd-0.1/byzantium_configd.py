@@ -243,7 +243,7 @@ include_file.close()
 
 # Start dnsmasq.
 print "Starting dnsmasq."
-subprocess.Popen(['/etc/rc.d/rc.dnsmasq', 'restart'])
+subprocess.Popen(['/etc/init.d/dnsmasq', 'restart'])
 
 # Start olsrd.
 olsrd_command = ['/usr/sbin/olsrd', '-i']
