@@ -21,6 +21,23 @@
 
 # Count the number of command line arguments passed to the script.  ABEND if
 # we're missing a few.
+#
+# Download raspian images at the following addresses.
+#
+# http://downloads.raspberrypi.org/images/raspbian/2013-02-09-wheezy-raspbian/2013-02-09-wheezy-raspbian.zip.torrent
+#
+# http://downloads.raspberrypi.org/images/raspbian/2013-02-09-wheezy-raspbian/2013-02-09-wheezy-raspbian.zip 
+# 
+# SHA-1 	b4375dc9d140e6e48e0406f96dead3601fac6c81
+# Default login 	Username: pi Password: raspberry
+#
+# For instructions on raspberry pi
+# http://xecdesign.com/qemu-emulating-raspberry-pi-the-easy-way/
+#
+# Raspberry pi kernel
+# http://xecdesign.com/downloads/linux-qemu/kernel-qemu
+#
+
 if [ "$#" -lt 2 ]; then
     echo "Error - insufficient command line arguments."
     echo "Usage: $0 -k <kernel> -i <disk image>"
@@ -46,7 +63,7 @@ if [ $? -gt 0 ]; then
 
 # Test to see if qemu-system-arm can emulate the 1176 processor core, and
 # ABEND if not.
-CPU_FOUND=`qemu-system-arm -cpu help | grep 1176`
+CPU_FOUND=`qemu-system-arm -cpu ? | grep 1176`
 if [ ! "$CPU_FOUND" ]; then
     echo "Error - qemu-system-arm does not emulate the arm1176 CPU."
     exit 1
