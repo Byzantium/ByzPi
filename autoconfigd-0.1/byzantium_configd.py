@@ -33,7 +33,7 @@ bssid = '02:CA:FF:EE:BA:BE'
 essid = 'Byzantium'
 
 # Layer 3 defaults.
-mesh_netmask = '255.255.0.0'
+mesh_netmask = '255.255.255.255'
 client_netmask = '255.255.255.0'
 commotion_network = '5.0.0.0'
 commotion_netmask = '255.0.0.0'
