@@ -1,3 +1,13 @@
+
+autoconfigd (0.1-3) unstable; urgency=low
+
+  * Default netmask changed to /32 (from /16).
+  * References to initscripts changed to be Debian-like.
+  * Added a command to actually apply the Commotion Wireless compatibility
+    route.
+
+ -- The Doctor <drwho@virtadpt.net>  Wed, 3 Apr 2013 23:13:26 -0400
+
 autoconfigd (0.1-2) unstable; urgency=low
 
   * Backported the "Can't find any wireless interfaces" error handler.
