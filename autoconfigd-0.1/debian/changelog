@@ -1,4 +1,3 @@
-
 autoconfigd (0.1-3) unstable; urgency=low
 
   * Default netmask changed to /32 (from /16).
