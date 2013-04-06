@@ -1,0 +1,7 @@
+Archive: wheezy
+Version: 7.0
+Component: main
+Origin: Project Byzantium
+Label: Project Byzantium
+Architecture: source
+Description: ByzPi packages and modified or replacement Debian packages

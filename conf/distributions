@@ -1,0 +1,9 @@
+Origin: Project Byzantium
+Label: Project Byzantium
+Suite: wheezy
+Codename: wheezy
+Version: 7.0
+Architectures: armhf source
+Components: main contrib
+UDebComponents: main contrib
+Description: ByzPi packages and modified or replacement Debian packages

@@ -1,0 +1,60 @@
+Origin: Project Byzantium
+Label: Project Byzantium
+Suite: wheezy
+Codename: wheezy
+Version: 7.0
+Date: Sat, 06 Apr 2013 04:03:06 UTC
+Architectures: armhf
+Components: main contrib
+Description: ByzPi packages and modified or replacement Debian packages
+MD5Sum:
+ 299caa20d421e41fc13545b72dc6e88b 2067 main/binary-armhf/Packages
+ b4fff178f97bf573013a974414bc64bd 966 main/binary-armhf/Packages.gz
+ 812e8976de1f0d5a93232994b7227c1a 188 main/binary-armhf/Release
+ d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-armhf/Packages
+ 7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-armhf/Packages.gz
+ d41d8cd98f00b204e9800998ecf8427e 0 main/source/Sources
+ 7029066c27ac6f5ef18d660d5741979a 20 main/source/Sources.gz
+ 19ae7f3cfc70dc6bf59d656bf9c2fa39 189 main/source/Release
+ d41d8cd98f00b204e9800998ecf8427e 0 contrib/binary-armhf/Packages
+ 7029066c27ac6f5ef18d660d5741979a 20 contrib/binary-armhf/Packages.gz
+ 2ddd93ca645e437484fe9c79b0323fb1 191 contrib/binary-armhf/Release
+ d41d8cd98f00b204e9800998ecf8427e 0 contrib/debian-installer/binary-armhf/Packages
+ 7029066c27ac6f5ef18d660d5741979a 20 contrib/debian-installer/binary-armhf/Packages.gz
+ d41d8cd98f00b204e9800998ecf8427e 0 contrib/source/Sources
+ 7029066c27ac6f5ef18d660d5741979a 20 contrib/source/Sources.gz
+ e96cd3c578347c3a93691e672061e2e8 192 contrib/source/Release
+SHA1:
+ 19beacd3cff3829edd0012be541cd201a79b0f83 2067 main/binary-armhf/Packages
+ 7152aee8f85225ba15d928cb947089a63ff1d369 966 main/binary-armhf/Packages.gz
+ 9401da5c2290b19162e180ee3c31c0c7ab69e75c 188 main/binary-armhf/Release
+ da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-armhf/Packages
+ 46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-armhf/Packages.gz
+ da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/source/Sources
+ 46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/source/Sources.gz
+ 1d035a3c60ee6eaaa1309b6a17c2de8b722b8333 189 main/source/Release
+ da39a3ee5e6b4b0d3255bfef95601890afd80709 0 contrib/binary-armhf/Packages
+ 46c6643f07aa7f6bfe7118de926b86defc5087c4 20 contrib/binary-armhf/Packages.gz
+ 6124d47b03730c68bad917ed44fae78fad7216f4 191 contrib/binary-armhf/Release
+ da39a3ee5e6b4b0d3255bfef95601890afd80709 0 contrib/debian-installer/binary-armhf/Packages
+ 46c6643f07aa7f6bfe7118de926b86defc5087c4 20 contrib/debian-installer/binary-armhf/Packages.gz
+ da39a3ee5e6b4b0d3255bfef95601890afd80709 0 contrib/source/Sources
+ 46c6643f07aa7f6bfe7118de926b86defc5087c4 20 contrib/source/Sources.gz
+ 03602a3ab840df73ec01443656270d36d7ab6452 192 contrib/source/Release
+SHA256:
+ 3ccd22acd00a1ae53b65e684990b287a29f2754ea30a8442d9c5dc2623b227e2 2067 main/binary-armhf/Packages
+ e2d7a6d8734cd8fcbe51bd7c3deddde887b074d4871b6d306c96d0f2debf9e06 966 main/binary-armhf/Packages.gz
+ 9282e79111def80825e80eed89c1edd1d02fb50e977167bc07ef569fb712b287 188 main/binary-armhf/Release
+ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-armhf/Packages
+ 59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-armhf/Packages.gz
+ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/source/Sources
+ 59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/source/Sources.gz
+ 98782221b14547720ca6f7f743fb80e43bdfe1b1a77c33ad1c706189ebc181eb 189 main/source/Release
+ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 contrib/binary-armhf/Packages
+ 59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 contrib/binary-armhf/Packages.gz
+ 4ab331ce910298f0f8d82fe769e5351f50609c77bdb228f4080fb54712ae4bc0 191 contrib/binary-armhf/Release
+ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 contrib/debian-installer/binary-armhf/Packages
+ 59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 contrib/debian-installer/binary-armhf/Packages.gz
+ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 contrib/source/Sources
+ 59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 contrib/source/Sources.gz
+ dac15fc87c4211512b744452f51c4ca3607c2290aeae6c556a9c2b32e8dcf0bf 192 contrib/source/Release
