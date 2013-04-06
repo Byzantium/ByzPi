@@ -126,7 +126,7 @@ class byzpi {
 				'openssl-blacklist':
 					ensure => '0.5-3';
 				'python-openssl':
-					ensure => '0.13-2';
+					ensure => '0.13-2+rpi1';
 				'python-cherrypy3':
 					ensure => '3.2.2-2';
 				'python-mako':
