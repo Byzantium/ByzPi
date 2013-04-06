@@ -136,6 +136,8 @@ class byzpi {
 					ensure => '0.15-1';
 				'python-setuptools':
 					ensure => '0.6.24-1';
+				'verify-operation':
+					ensure => '0.1-1';
 				'wireless-tools':
 					ensure => '30~pre9-8';
 			}
