@@ -82,7 +82,6 @@ class byzpi {
 	}
 	include files
 	class packages {
-		Class['apt'] -> Class['python-pip']
 		exec { 'apt-get -q update':
 			before => Class['apt'],
 		}
