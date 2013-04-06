@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>ByzPi APT Repo</title>
+		<style type="text/css">
+			body {
+				background-color: #0080c4;
+				font-family: sans-serif,Sans,Arial;
+			}
+			header {
+				color: #ffffff;
+				font-stretch: ultra-condensed;
+			}
+			section { 
+				padding: 0.5%;
+				background-color: #ffffff;
+				color: #000000;
+			}
+			code {
+				background-color: lightgrey;
+				padding: 0.2% 0.8% 0.2% 0.8% ;
+				font-family: monospace;
+			}
+			span.bold-text { font-weight: bold; }
+			span.em {
+				font-family: serif,Courier,Times;
+				font-style: oblique;
+				font-size: small;
+			}
+			p.tabbed { padding-left: 2%; }
+			p.tabbed-2 { padding-left: 4%; }
+		</style>
+	</head>
+	<body>
+		<article>
+			<header>
+				<h1>ByzPi APT Repo</h1>
+			</header>
+			<section>
+				<p>Usage:</p>
+				<p>Either use the <a title="ByzPi for Raspian install script" href="install.sh">install script</a> by running:</p>
+				<p><code>wget -q http://byzantium.github.io/byzPi/install.sh -O - | bash -</code></p>
+				<p><span class="bold-text">Or</span></p>
+				<p>Add </p> 
+				<p class="tabbed"><code>deb http://byzantium.github.io/byzPi/apt/ wheezy main contrib</code></p>
+				<p class="tabbed">To</p>
+				<p class="tabbed-2"><code>/etc/apt/sources.list.d/byzantium.list</code> <span class="em">(recommended)</span></p>
+				<p class="tabbed-2">or</p>
+				<p class="tabbed-2"><code>/etc/apt/sources.list</code></p>
+			</section>
+		</article>
+	</body>
+</html>
