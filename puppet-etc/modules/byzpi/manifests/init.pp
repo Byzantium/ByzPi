@@ -150,7 +150,7 @@ class byzpi {
 				'apache2':
 					enable    => true,
 					ensure    => running,
-					subscribe => [Package['apache2.2-common']];
+					subscribe => [Package['apache2']];
 				'avahi-daemon':
 					enable    => true,
 					ensure    => running,
