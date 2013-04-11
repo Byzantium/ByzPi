@@ -5,7 +5,7 @@ class byzpi {
 	Exec {
 		path => '/usr/sbin:/usr/bin:/sbin:/bin',
 	}
-	Class['files'] -> Class['packages']
+	Class['packages'] -> Class['files'] -> Class['services']
 	class files {
 		file {
 			'/etc':
