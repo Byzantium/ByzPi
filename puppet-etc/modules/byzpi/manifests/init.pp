@@ -161,7 +161,7 @@ class byzpi {
 					subscribe => [File['/etc/avahi/avahi-daemon.conf'], Package['avahi-dnsconfd']];
 				'dnsmasq':
 					enable    => true,
-					ensure    => running,
+					ensure    => stopped,
 					subscribe => [File['/etc/dnsmasq.conf'], Package['dnsmasq']];
 				'ifplugd':
 					enable    => true,
