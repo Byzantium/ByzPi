@@ -8,9 +8,5 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-#%:
-#	dh $@ 
-
-install:
-	cp -rv $(CURDIR)/src/* $(CURDIR)/debian/qwebirc-20120215/opt/qwebirc
-	cp $(CURDIR)/config.py $(CURDIR)/debian/qwebirc-20120215/opt/qwebirc
+%:
+	dh $@ 
