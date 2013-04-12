@@ -160,16 +160,14 @@ class byzpi {
 					ensure    => running,
 					subscribe => [File['/etc/avahi/avahi-daemon.conf'], Package['avahi-dnsconfd']];
 				'dnsmasq':
-					enable    => true,
-					ensure    => stopped,
+					enable    => false,
 					subscribe => [File['/etc/dnsmasq.conf'], Package['dnsmasq']];
 				'ifplugd':
 					enable    => true,
 					ensure    => running,
 					subscribe => [File['/etc/ifplugd/action.d/mesh'], File['/etc/resolv.conf.gateway'], Package['ifplugd']];
 				'olsrd':
-					enable    => true,
-					ensure    => stopped,
+					enable    => false,
 					subscribe => [File['/etc/olsrd/olsrd.conf'], Package['olsrd']];
 			}
 		}
