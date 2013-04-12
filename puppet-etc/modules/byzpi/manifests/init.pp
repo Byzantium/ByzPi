@@ -78,6 +78,12 @@ class byzpi {
 				group   => root,
 				mode    => 0644,
 				owner   => root;
+			'/etc/network/interfaces':
+				content => template('byzpi/etc/network/interfaces'),
+				ensure  => file,
+				group   => root,
+				mode    => 0644,
+				owner   => root;
 		}
 	}
 	include files
