@@ -1,0 +1,16 @@
+Source: qwebirc
+Section: unknown
+Priority: extra
+Maintainer: The Doctor <drwho@virtadpt.net>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+Homepage: http://qwebirc.org/
+Vcs-Git: http://hg.qwebirc.org/qwebirc/src
+
+Package: qwebirc
+Architecture: all
+Depends: python, python-twisted, python-twisted-bin, python-twisted-core, python-twisted-runner, python-twisted-names, python-twisted-mail, python-twisted-words, python-twisted-web, python-zope.interface, python-openssl
+Description: QwebIRC web-based IRC client.
+ QwebIRC is a web-based IRC client that is AJAX-heavy, and aims to make IRC
+ easy to use, i.e., you don't need to install an IRC client, you just have to
+ use a web browser to click on a link.

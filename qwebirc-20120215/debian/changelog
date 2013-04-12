@@ -1,0 +1,6 @@
+qwebirc (20120215-1) unstable; urgency=low
+
+  * Initial release.
+  * There is no Debian package of qwebirc, so we have to make one.
+
+ -- The Doctor <drwho@virtadpt.net>  Thu, 11 Apr 2013 21:13:26 -0400

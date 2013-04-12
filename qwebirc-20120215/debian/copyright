@@ -1,0 +1,26 @@
+This work was packaged for Debian by:
+
+    The Doctor <drwho@virtadpt.net> on Thu, 11 Apr 2013 21:18:26 -0400
+
+It was downloaded from:
+
+    http://qwebirc.org/
+
+Upstream Author(s):
+
+    Chris Porter and the QwebIRC project.
+
+Copyright:
+
+    Copyright (C) 2012 Chris Porter and the QwebIRC project.
+
+License:
+
+    GPLv2 (http://qwebirc.org/license)
+
+The Debian packaging is:
+
+    Copyright (C) 2013 The Doctor <drwho@virtadpt.net>
+
+and is licensed under the GPL version 2, see "/usr/share/common-licenses/GPL-2".
+
