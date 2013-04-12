@@ -19,6 +19,7 @@ echo "Installing puppet."
 sudo apt-get -qy install puppet || die "Failed to install puppet!"
 
 echo "Checking out the ByzPi repo."
+rm -rf BzyPi
 git clone git://github.com/Byzantium/ByzPi.git || die "Failed to checkout the ByzPi repo!"
 
 echo "Installing the byzpi puppet module."
