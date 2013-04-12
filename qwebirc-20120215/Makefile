@@ -15,8 +15,9 @@ install: build
 	cp -a static $(BINDIR)
 	cp -a twisted $(BINDIR)
 	cp -a util $(BINDIR)
-	cp AUTHORS clean.py compile.py config.py* $(BINDIR)
-	cp LICENSE Makefile qwebirc.pdn qwebirc.png README run.py $(BINDIR)
+	cp AUTHORS *.py config.py* $(BINDIR)
+	cp LICENSE Makefile qwebirc.pdn qwebirc.png README $(BINDIR)
+	cp .checked .compiled .hg* $(BINDIR)
 
 uninstall:
 	rm -rf $(BINDIR)
