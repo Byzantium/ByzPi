@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export VERSION=20120215
+export DEBFULLNAME="The Doctor"
+export DEBEMAIL="drwho@virtadpt.net"
+
+cd ../build
