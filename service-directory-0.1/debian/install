@@ -1,4 +1,4 @@
-avahiclient.init	/etc/init.d/avahiclient
+avahiclient		/etc/init.d
 service-directory.conf	/etc/apache2/mods-enabled
 index.html		/var/www
 services.py		/usr/lib/cgi-bin
