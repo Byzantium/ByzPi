@@ -19,13 +19,20 @@ echo "Installing puppet."
 sudo apt-get -qy install puppet || die "Failed to install puppet!"
 
 echo "Checking out the ByzPi repo."
-rm -rf BzyPi
-git clone git://github.com/Byzantium/ByzPi.git || die "Failed to checkout the ByzPi repo!"
+if [ -d ByzPi ]; then
+    echo "ByzPi repo exists.  Updating it just in case."
+    cd ByzPi
+    git pull
+    cd ..
+else
+    echo "Cloning ByzPi repo."
+    git clone git://github.com/Byzantium/ByzPi.git || die "Failed to checkout the ByzPi repo!"
+fi
 
-echo "Installing the byzpi puppet module."
+echo "Installing the ByzPi puppet module."
 sudo ln -sf "$(pwd)/ByzPi/puppet-etc/modules/byzpi/" /etc/puppet/modules/byzpi
 
-echo "Applying the byzpi configuration."
+echo "Applying the ByzPi configuration."
 sudo puppet apply -e "include byzpi" || die "Applying the byzpi configuration failed."
 
 echo "Installation complete! Restart your Raspberry Pi with the 'reboot' command to continue."
