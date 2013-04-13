@@ -1,3 +1,10 @@
+autoconfigd (0.1-4) unstable; urgency=low
+
+  * Patched the daemon to pass two extra arguments to captive_portal.py when
+    it starts, the Debian-specific paths to the SSL certificate and key.
+
+ -- The Doctor <drwho@virtadpt.net>  Fri, 12 Apr 2013 23:51:26 -0400
+
 autoconfigd (0.1-3) unstable; urgency=low
 
   * Default netmask changed to /32 (from /16).
