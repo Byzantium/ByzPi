@@ -104,55 +104,55 @@ class byzpi {
 			}
 			package {
 				'apache2':
-					ensure => '2.2.22-13';
+					ensure => present;
 				'autoconfigd':
-					ensure => '0.1-4';
+					ensure => present;
 				'avahi-daemon':
-					ensure => '0.6.31-2';
+					ensure => present;
 				'avahi-discover':
-					ensure => '0.6.31-2';
+					ensure => present;
 				'avahi-dnsconfd':
-					ensure => '0.6.31-2';
+					ensure => present;
 				'avahi-utils':
-					ensure => '0.6.31-2';
+					ensure => present;
 				'captive-portal-daemon':
-					ensure => '0.3-1';
+					ensure => present;
 				'dhcpcd5':
-					ensure => '5.5.6-1';
+					ensure => present;
 				'dnsmasq':
-					ensure => '2.62-3+deb7u1';
+					ensure => present;
 				'firmware-linux':
-					ensure => '0.36+wheezy.1';
+					ensure => present;
 				'ifplugd':
-					ensure => '0.28-19';
+					ensure => present;
 				'iputils-arping':
-					ensure => '3:20101006-1';
+					ensure => present;
 				'nodejs':
-					ensure => '0.6.19~dfsg1-6';
+					ensure => present;
 				'npm':
-					ensure => '1.1.4~dfsg-2';
+					ensure => present;
 				'olsrd':
-					ensure => '0.6.2-2.1';
+					ensure => present;
 				'olsrd-plugins':
-					ensure => '0.6.2-2.1';
+					ensure => present;
 				'openssl-blacklist':
-					ensure => '0.5-3';
+					ensure => present;
 				'python-openssl':
-					ensure => '0.13-2+rpi1';
+					ensure => present;
 				'python-cherrypy3':
-					ensure => '3.2.2-2';
+					ensure => present;
 				'python-mako':
-					ensure => '0.7.0-1.1';
+					ensure => present;
 				'python-markupsafe':
-					ensure => '0.15-1';
+					ensure => present;
 				'python-setuptools':
-					ensure => '0.6.24-1';
+					ensure => present;
 				'qwebirc':
-					ensure => '20120215-1';
+					ensure => present;
 				'verify-operation':
-					ensure => '0.1-1';
+					ensure => present;
 				'wireless-tools':
-					ensure => '30~pre9-8';
+					ensure => present;
 			}
 		}
 		include apt
