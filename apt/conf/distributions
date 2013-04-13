@@ -7,3 +7,4 @@ Architectures: armhf source
 Components: main contrib
 UDebComponents: main contrib
 Description: ByzPi packages and modified or replacement Debian packages
+SignWith: 56842D07

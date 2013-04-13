@@ -1,3 +1,6 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
 Origin: Project Byzantium
 Label: Project Byzantium
 Suite: wheezy
@@ -58,3 +61,14 @@ SHA256:
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 contrib/source/Sources
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 contrib/source/Sources.gz
  64c555942814d965480ac87ad1c1b2fecf03fa895edee8dd6f1b484dd4be2abb 194 contrib/source/Release
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+
+iQEcBAEBAgAGBQJRacAcAAoJECNjAO5WhC0H5VcIAJwTkTgpVhLway96KlB31puZ
+slgpEEARjuuBevAQws2D1+Ty3R6C0YvtlDxwsZP5ruQk/mbcw3erZVywDwaXxrUQ
+6SuLh1/EG5i0ZgKIP3mtCpCOOZjoqXuXNMGOZVMrKs4GVKeigF6OxX6mp8NIsZRL
+SCK+6eXLrOt8EmmuShy3EiLTa0sVW9JiL7zhFtXQfsXB3bBtaJG3aIS8RbB60AEy
+soj6zW3xd8vAShNhPVSYz+wh8ueEQbV36YaA74Rg/cF/eVRBGnbDeVoBT6/40zhx
+tC68YseNQSkaqz2ZPyi33Tj9xGxtxVSagXOoj/iise5D5jUisjjp3otWJcgmuR0=
+=W26q
+-----END PGP SIGNATURE-----
