@@ -155,6 +155,8 @@ class byzpi {
 					ensure => present;
 				'qwebirc':
 					ensure => present;
+				'service-directory':
+					ensure => present;
 				'verify-operation':
 					ensure => present;
 				'wireless-tools':
@@ -171,6 +173,10 @@ class byzpi {
 					enable    => true,
 					ensure    => running,
 					subscribe => [Package['apache2']];
+				'avahiclient':
+					enable    => true,
+					ensure    => running,
+					subscribe => [Package['service-directory']];
 				'avahi-daemon':
 					enable    => true,
 					ensure    => running,
