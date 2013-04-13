@@ -168,6 +168,12 @@ class byzpi {
 	include packages
 	class services {
 		class sysvinit {
+			exec {
+				'/usr/sbin/update-rc.d reset_state defaults':
+					require => Service['reset_state'];
+				'/usr/sbin/update-rc.d ssl defaults':
+					require => Service['ssl'];
+			}
 			service {
 				'apache2':
 					enable    => true,
@@ -200,6 +206,9 @@ class byzpi {
 					ensure    => running,
 					subscribe => [File['/opt/qwebirc/config.py'], Package['qwebirc']];
 				'reset_state':
+					enable    => true,
+					ensure    => running;
+				'ssl':
 					enable    => true,
 					ensure    => running;
 			}
