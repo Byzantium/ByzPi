@@ -1,6 +1,6 @@
 #!/bin/bash
 
-basedir=$(realpath `basedir $0`)
+basedir=$(realpath `dirname $0`)
 codename="wheezy"
 
 CWD=`pwd`
