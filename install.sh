@@ -6,10 +6,11 @@ die() {
 	exit 1
 }
 
-echo "Adding our apt-signing key."
+echo "Adding our repository and apt-signing key."
 curl -s -o byzantium.key http://byzantium.github.io/ByzPi/public.key || die "Failed to download key."
 sudo apt-key add byzantium.key || die "Failed to install key."
 rm -f byzantium.key
+echo "deb http://byzantium.github.io/ByzPi/apt/ wheezy main contrib" | sudo tee /etc/apt/sources.list.d/byzantium.list
 
 echo "Updating apt's cache."
 sudo apt-get -q update || die "Failed to update apt's cache!"
