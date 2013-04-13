@@ -141,6 +141,8 @@ class byzpi {
 					ensure => '0.15-1';
 				'python-setuptools':
 					ensure => '0.6.24-1';
+				'qwebirc':
+					ensure => '20120215-1';
 				'verify-operation':
 					ensure => '0.1-1';
 				'wireless-tools':
@@ -175,6 +177,10 @@ class byzpi {
 				'olsrd':
 					enable    => false,
 					subscribe => [File['/etc/olsrd/olsrd.conf'], Package['olsrd']];
+				'qwebirc':
+					enable    => true,
+					ensure    => running,
+					subscribe => [File['/opt/qwebirc/config.py'], Package['qwebirc']];
 			}
 		}
 		include sysvinit
