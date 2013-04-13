@@ -106,7 +106,7 @@ class byzpi {
 				'apache2':
 					ensure => '2.2.22-13';
 				'autoconfigd':
-					ensure => '0.1-3';
+					ensure => '0.1-4';
 				'avahi-daemon':
 					ensure => '0.6.31-2';
 				'avahi-discover':
