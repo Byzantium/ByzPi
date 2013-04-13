@@ -44,6 +44,12 @@ class byzpi {
 				owner   => root;
 			'/etc/init.d':
 				ensure => directory;
+			'/etc/init.d/reset_state':
+				content => template('byzpi/etc/init.d/reset_state'),
+				ensure  => file,
+				group   => root,
+				mode    => 0755,
+				owner   => root;
 			'/etc/init.d/ssl':
 				content => template('byzpi/etc/init.d/ssl'),
 				ensure  => file,
@@ -187,6 +193,9 @@ class byzpi {
 					enable    => true,
 					ensure    => running,
 					subscribe => [File['/opt/qwebirc/config.py'], Package['qwebirc']];
+				'reset_state':
+					enable    => true,
+					ensure    => running;
 			}
 		}
 		include sysvinit
