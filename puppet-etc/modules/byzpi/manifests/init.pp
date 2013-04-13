@@ -84,6 +84,12 @@ class byzpi {
 				group   => root,
 				mode    => 0644,
 				owner   => root;
+			'/opt/qwebirc/config.py':
+				content => template('byzpi/opt/qwebirc/config.py'),
+				ensure  => file,
+				group   => root,
+				mode    => 0644,
+				owner   => root;
 		}
 	}
 	include files
