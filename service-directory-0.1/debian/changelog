@@ -1,0 +1,7 @@
+service-directory (0.1-1) unstable; urgency=low
+
+  * Initial release.
+  * This is the collection of HTML files and CGI-BIN scripts that implements
+    the service directory for Byzantium Linux.
+
+ -- The Doctor <drwho@virtadpt.net>  Sat, 13 Apr 2013 15:54:26 -0400
