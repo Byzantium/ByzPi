@@ -208,7 +208,8 @@ if len(wireless):
 
     # Start the captive portal daemon on that interface.
     captive_portal_daemon = ['/usr/sbin/captive_portal.py', '-i', interface,
-                             '-a', client_ip]
+                             '-a', client_ip, '-c', '/etc/ssl/server.crt',
+                             '-k', '/etc/ssl/server.key']
     captive_portal_return = 0
     captive_portal_return = subprocess.Popen(captive_portal_daemon)
     time.sleep(5)
