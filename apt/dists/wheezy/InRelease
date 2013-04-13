@@ -6,13 +6,13 @@ Label: Project Byzantium
 Suite: wheezy
 Codename: wheezy
 Version: 6.0.7
-Date: Sat, 13 Apr 2013 20:45:26 UTC
+Date: Sat, 13 Apr 2013 21:15:11 UTC
 Architectures: armhf
 Components: main contrib
 Description: ByzPi packages and modified or replacement Debian packages
 MD5Sum:
- f849736bae45f206b2ceb4d374657a85 2939 main/binary-armhf/Packages
- fc0b86d8b4530e6f61e3edb78c798cdd 1294 main/binary-armhf/Packages.gz
+ 795d2550c218f58cbc73b83b3408838c 3627 main/binary-armhf/Packages
+ d119fd35ae47ab3041dc61b8e20cd194 1514 main/binary-armhf/Packages.gz
  5006eef2eaf23e48eb2b6e8a7db23bd1 190 main/binary-armhf/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-armhf/Packages
  7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-armhf/Packages.gz
@@ -28,8 +28,8 @@ MD5Sum:
  7029066c27ac6f5ef18d660d5741979a 20 contrib/source/Sources.gz
  6e5bc96a1c8f0dac22ece5ed7e047ed0 194 contrib/source/Release
 SHA1:
- 3a8e480916ad04e0e280ae79513b2ec69962a9d7 2939 main/binary-armhf/Packages
- 27ee4f8d357a147d4f6422860658b87730ef566a 1294 main/binary-armhf/Packages.gz
+ d8651369de6d98cf694833bf8b0185522543101b 3627 main/binary-armhf/Packages
+ 9060ec75fc9c15f80526f9543df58a54c54e609a 1514 main/binary-armhf/Packages.gz
  1c2dbf847d8af351441c22e2d77efc0b61121ce0 190 main/binary-armhf/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-armhf/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-armhf/Packages.gz
@@ -45,8 +45,8 @@ SHA1:
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 contrib/source/Sources.gz
  155deea219f2d04936bcd5731058a7ba16de64fe 194 contrib/source/Release
 SHA256:
- 4049c139cdd6cc0ca5539a0bc8262239659cd50f9fe3e633560c7fbfba6b53e0 2939 main/binary-armhf/Packages
- b6784f2f64e293490f12592892caf0805187f8fdf528b99a6c24cacf4954ef07 1294 main/binary-armhf/Packages.gz
+ 053956a32c935545b752ab1cb5371f10f668c09e8d8bfcf904fc4776722517e3 3627 main/binary-armhf/Packages
+ f863067d753a2d165ec882a92cf5fba5fda58cd45485c293b4e23bc840d70023 1514 main/binary-armhf/Packages.gz
  e68c4e6b10dd252b54790548545082f0cae5d651aca0edf75beef4a17ba41729 190 main/binary-armhf/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-armhf/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-armhf/Packages.gz
@@ -64,11 +64,11 @@ SHA256:
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.12 (GNU/Linux)
 
-iQEcBAEBAgAGBQJRacPmAAoJECNjAO5WhC0HMdEH/06xfrG00ACMFvLoo6emlHom
-qWLw4he6GVfpBatrHZdykP1Kq8efkdcS1hTIOcNFHEwlp/WYdXHROFCIaIBGr2FR
-TrLOhU8ydlIYo+quBTsPJigU5GKaANHKb+wfO5kyoHmbHcS3MPZi4TcFzxlmbi/N
-VqK9SHnWz8KLFLWKAmlmQep+Sf4sFbic1c36nj6f7Wx6BE+4+537IlB5zWTSRCfQ
-SxMGI6UHj0TFmqc8dp7thuJ953cH9ubmwe9kOsqyUr98yTE5U4c0AIZNJiGklZoH
-IhPuhk7BpKMwoktiJbFsTuHOgpJtBP9i41acZaaZtHVwcUqbSmTr36wRDWRsTT4=
-=kpiz
+iQEcBAEBAgAGBQJRacrfAAoJECNjAO5WhC0Hq54H/3LFKvicGFwAJKwfi05fEI14
+rH3YZXExdxkPZIjlkldKE/kz6fhqrPeEavxlrhcO2APAqKpiUP/fMTSm+7RJWUiD
+9YJjvOAQNeWL4ve9I0YkP73GW9LP3FSNgLY5OPsHJARVXamx8kMcnHs1ncd4LOw6
+iWxTrg6HpsRaFVmcEttP4cznX7b+hM0iYaBzCXjvSXD6HXpIgp3yXsB91jLQDOap
+n1m5Fd23kKG4FIi0CcN5Xtj70VkkQw2lDJbqGSO8ibPmwjsi3EraR/o8EPf7c4is
+9JW8l1WdUNdlQVpAPN0eiS8BfIEJfZ6EYcTNpeI6tfPXyVb8VpybgUkGv6EZEFM=
+=rd2l
 -----END PGP SIGNATURE-----

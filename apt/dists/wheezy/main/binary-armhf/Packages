@@ -54,6 +54,24 @@ Description: QwebIRC web-based IRC client.
  easy to use, i.e., you don't need to install an IRC client, you just have to
  use a web browser to click on a link.
 
+Package: service-directory
+Version: 0.1-1
+Architecture: all
+Maintainer: The Doctor <drwho@virtadpt.net>
+Installed-Size: 132
+Depends: apache2, avahi-daemon, bash, python
+Homepage: http://project-byzantium.org/
+Priority: extra
+Section: unknown
+Filename: pool/main/s/service-directory/service-directory_0.1-1_all.deb
+Size: 6530
+SHA256: 077fbbc65cc5cdb09ad0856fb2d675e0a474a7abb49ee0f7f81fb0cbed6e877c
+SHA1: ae591bd57854cf6a11c750e40f4a97827b541aa1
+MD5sum: 218fad7abe39fab32fb2770ddad6eee0
+Description: Byzantium node service directory.
+ This is the collection of Python CGI-BIN scripts, shell scripts, and HTML that
+ makes up the service directory on the frontpage of every Byzantium node.
+
 Package: verify-operation
 Version: 0.1-1
 Architecture: all
