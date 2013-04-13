@@ -6,8 +6,10 @@ die() {
 	exit 1
 }
 
-echo "Adding the ByzPi repository to your apt sources."
-echo "deb http://byzantium.github.com/ByzPi/apt wheezy main" | sudo tee /etc/apt/sources.list.d/byzpi.list
+echo "Adding our apt-signing key."
+curl -s -o byzantium.key http://byzantium.github.io/ByzPi/public.key || die "Failed to download key."
+sudo apt-key add byzantium.key || die "Failed to install key."
+rm -f byzantium.key
 
 echo "Updating apt's cache."
 sudo apt-get -q update || die "Failed to update apt's cache!"
@@ -22,7 +24,7 @@ echo "Checking out the ByzPi repo."
 if [ -d ByzPi ]; then
     echo "ByzPi repo exists.  Updating it just in case."
     cd ByzPi
-    git pull
+    git pull || die "Failed to update the ByzPi repo!"
     cd ..
 else
     echo "Cloning ByzPi repo."
