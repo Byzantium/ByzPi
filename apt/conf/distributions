@@ -2,7 +2,7 @@ Origin: Project Byzantium
 Label: Project Byzantium
 Suite: wheezy
 Codename: wheezy
-Version: 7.0
+Version: 6.0.7
 Architectures: armhf source
 Components: main contrib
 UDebComponents: main contrib
