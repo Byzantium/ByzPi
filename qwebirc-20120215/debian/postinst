@@ -17,13 +17,27 @@ case "$1" in
             --disabled-login qwebirc
 
         echo "Creating logfile for QwebIRC server." 1>&2
-        touch /opt/qwebirc/twisted.log
-        chown qwebirc /opt/qwebirc/twisted.log
+        touch /opt/qwebirc/twistd.log
+        chown qwebirc.qwebirc /opt/qwebirc/twistd.log
+
+	echo "Setting permissions on fiddly little files that QwebIRC needs." \
+	    1>&2
+        chown qwebirc.qwebirc /opt/qwebirc/
+        chown qwebirc.qwebirc /opt/qwebirc/.compiled
+
+        echo "Installing initscript for QwebIRC server." 1>&2
+        update-rc.d qwebirc defaults
         ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
+        echo "Deactivating QwebIRC server." 1>&2
+        service qwebirc stop
+
         echo "Deleting Twisted logfile so the directory can be removed." 1>&2
-        rm -f /opt/qwebirc/twisted.log
+        rm -f /opt/qwebirc/twistd.log
+
+        echo "Disabling QwebIRC server." 1>&2
+        update-rc.d -f qwebirc remove
         ;;
 
     *)

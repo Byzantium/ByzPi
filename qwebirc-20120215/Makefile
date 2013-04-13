@@ -1,4 +1,5 @@
 BINDIR = $(DESTDIR)/opt/qwebirc
+INITDIR = $(DESTDIR)/etc/init.d
 
 build:
 	cp config.py.example config.py
@@ -6,6 +7,7 @@ build:
 
 install: build
 	mkdir -p $(BINDIR)
+	mkdir -p $(INITDIR)
 	cp -a bin $(BINDIR)
 	cp -a css $(BINDIR)
 	cp -a dummyauthgate $(BINDIR)
@@ -17,7 +19,8 @@ install: build
 	cp -a util $(BINDIR)
 	cp AUTHORS *.py config.py* $(BINDIR)
 	cp LICENSE Makefile qwebirc.pdn qwebirc.png README $(BINDIR)
-	cp .checked .compiled .hg* $(BINDIR)
+	cp qwebirc.init $(INITDIR)/qwebirc
+	cp .compiled .hg* $(BINDIR)
 
 uninstall:
 	rm -rf $(BINDIR)
