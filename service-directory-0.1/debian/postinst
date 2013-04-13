@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# postinst script for the service-directory Debian package.
+# By: The Doctor [412/724/301/703][ZS] <drwho@virtadpt.net>
+# For: ByzPi (http://project-byzantium.org/)
+# License: GPLv3
+
+# Terminate on all errors.
+set -e
+
+# The command line options passed to this script are passed by the dpkg
+# utility whenever it's installed or deleted.
+case "$1" in
+    configure)
+        echo "Installing initscript for the avahi-client script." 1>&2
+        update-rc.d avahiclient defaults
+        ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        echo "Disabling Avahi client service." 1>&2
+        update-rc.d -f avahiclient remove
+        ;;
+
+    *)
+        echo "Unknown command line argument $1 passed to $0." 1>&2
+        exit 1
+        ;;
+esac
+
+# Clean up after ourselves.
+exit 0
