@@ -2,59 +2,59 @@ Origin: Project Byzantium
 Label: Project Byzantium
 Suite: wheezy
 Codename: wheezy
-Version: 7.0
-Date: Sat, 06 Apr 2013 04:03:06 UTC
+Version: 6.0.7
+Date: Sat, 13 Apr 2013 05:02:23 UTC
 Architectures: armhf
 Components: main contrib
 Description: ByzPi packages and modified or replacement Debian packages
 MD5Sum:
- 299caa20d421e41fc13545b72dc6e88b 2067 main/binary-armhf/Packages
- b4fff178f97bf573013a974414bc64bd 966 main/binary-armhf/Packages.gz
- 812e8976de1f0d5a93232994b7227c1a 188 main/binary-armhf/Release
+ f849736bae45f206b2ceb4d374657a85 2939 main/binary-armhf/Packages
+ fc0b86d8b4530e6f61e3edb78c798cdd 1294 main/binary-armhf/Packages.gz
+ 5006eef2eaf23e48eb2b6e8a7db23bd1 190 main/binary-armhf/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-armhf/Packages
  7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-armhf/Packages.gz
  d41d8cd98f00b204e9800998ecf8427e 0 main/source/Sources
  7029066c27ac6f5ef18d660d5741979a 20 main/source/Sources.gz
- 19ae7f3cfc70dc6bf59d656bf9c2fa39 189 main/source/Release
+ 1287851eeca3f2eeee1ddddbb71aa76f 191 main/source/Release
  d41d8cd98f00b204e9800998ecf8427e 0 contrib/binary-armhf/Packages
  7029066c27ac6f5ef18d660d5741979a 20 contrib/binary-armhf/Packages.gz
- 2ddd93ca645e437484fe9c79b0323fb1 191 contrib/binary-armhf/Release
+ 0baf2bb4efa76d0f4fb399a0df18c336 193 contrib/binary-armhf/Release
  d41d8cd98f00b204e9800998ecf8427e 0 contrib/debian-installer/binary-armhf/Packages
  7029066c27ac6f5ef18d660d5741979a 20 contrib/debian-installer/binary-armhf/Packages.gz
  d41d8cd98f00b204e9800998ecf8427e 0 contrib/source/Sources
  7029066c27ac6f5ef18d660d5741979a 20 contrib/source/Sources.gz
- e96cd3c578347c3a93691e672061e2e8 192 contrib/source/Release
+ 6e5bc96a1c8f0dac22ece5ed7e047ed0 194 contrib/source/Release
 SHA1:
- 19beacd3cff3829edd0012be541cd201a79b0f83 2067 main/binary-armhf/Packages
- 7152aee8f85225ba15d928cb947089a63ff1d369 966 main/binary-armhf/Packages.gz
- 9401da5c2290b19162e180ee3c31c0c7ab69e75c 188 main/binary-armhf/Release
+ 3a8e480916ad04e0e280ae79513b2ec69962a9d7 2939 main/binary-armhf/Packages
+ 27ee4f8d357a147d4f6422860658b87730ef566a 1294 main/binary-armhf/Packages.gz
+ 1c2dbf847d8af351441c22e2d77efc0b61121ce0 190 main/binary-armhf/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-armhf/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-armhf/Packages.gz
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/source/Sources
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/source/Sources.gz
- 1d035a3c60ee6eaaa1309b6a17c2de8b722b8333 189 main/source/Release
+ 1423d4a4f9845833175a8987905a8d41d6d9ad7f 191 main/source/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 contrib/binary-armhf/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 contrib/binary-armhf/Packages.gz
- 6124d47b03730c68bad917ed44fae78fad7216f4 191 contrib/binary-armhf/Release
+ 89831c651f93519778ff829cff7175746a7bd870 193 contrib/binary-armhf/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 contrib/debian-installer/binary-armhf/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 contrib/debian-installer/binary-armhf/Packages.gz
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 contrib/source/Sources
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 contrib/source/Sources.gz
- 03602a3ab840df73ec01443656270d36d7ab6452 192 contrib/source/Release
+ 155deea219f2d04936bcd5731058a7ba16de64fe 194 contrib/source/Release
 SHA256:
- 3ccd22acd00a1ae53b65e684990b287a29f2754ea30a8442d9c5dc2623b227e2 2067 main/binary-armhf/Packages
- e2d7a6d8734cd8fcbe51bd7c3deddde887b074d4871b6d306c96d0f2debf9e06 966 main/binary-armhf/Packages.gz
- 9282e79111def80825e80eed89c1edd1d02fb50e977167bc07ef569fb712b287 188 main/binary-armhf/Release
+ 4049c139cdd6cc0ca5539a0bc8262239659cd50f9fe3e633560c7fbfba6b53e0 2939 main/binary-armhf/Packages
+ b6784f2f64e293490f12592892caf0805187f8fdf528b99a6c24cacf4954ef07 1294 main/binary-armhf/Packages.gz
+ e68c4e6b10dd252b54790548545082f0cae5d651aca0edf75beef4a17ba41729 190 main/binary-armhf/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-armhf/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-armhf/Packages.gz
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/source/Sources
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/source/Sources.gz
- 98782221b14547720ca6f7f743fb80e43bdfe1b1a77c33ad1c706189ebc181eb 189 main/source/Release
+ 9b5bbb8042ace546a58aff9389dfb974cd53caab208ed99ff365c7ad2457a920 191 main/source/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 contrib/binary-armhf/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 contrib/binary-armhf/Packages.gz
- 4ab331ce910298f0f8d82fe769e5351f50609c77bdb228f4080fb54712ae4bc0 191 contrib/binary-armhf/Release
+ 102263db218c55b9bdf4d33ae0a18b29c957c889029d7a533bff1c29c31c0c7e 193 contrib/binary-armhf/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 contrib/debian-installer/binary-armhf/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 contrib/debian-installer/binary-armhf/Packages.gz
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 contrib/source/Sources
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 contrib/source/Sources.gz
- dac15fc87c4211512b744452f51c4ca3607c2290aeae6c556a9c2b32e8dcf0bf 192 contrib/source/Release
+ 64c555942814d965480ac87ad1c1b2fecf03fa895edee8dd6f1b484dd4be2abb 194 contrib/source/Release
