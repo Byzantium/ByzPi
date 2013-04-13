@@ -1,0 +1,9 @@
+## Updating the APT repo
+### Prerequisites ###
+* installed and working reprepro
+### Process ###
+1) download the .deb files into the root of this git repo
+1) run "./add-debs.sh"
+  * all .deb files shoud be added/updated in the repo and any new files under ./apt checked into the git repo
+1) remove any remaining .deb files and ensure changes were made as expected.
+1) git push
