@@ -1,0 +1,56 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          reset_state
+# Required-Start:    $syslog
+# Required-Stop:     $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Resets configuration files.
+# Description:       Some configuration files can be altered during a node's
+#                    life due to changes in mesh network dynamics.  Persistent
+#		     storage means that these alterations can interfere with
+#		     the operation of nodes if they reboot.  Case in point, if
+#		     Hna4{} directives persist in olsrd.conf after a reboot,
+#		     mesh nodes may mistakenly assume that there is a gateway,
+#		     and interfere with the operation of the mesh.  Thus,
+#		     things that will reset the state of a node at boot-time to
+#		     a known-good state go into this initscript.
+### END INIT INFO
+
+# Author: The Doctor [412/724/301/703][ZS] <drwho@virtadpt.net>
+
+# Do NOT "set -e"
+
+# PATH should only include /usr/* if it runs after the mountnfs.sh script
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+DESC="Reset a node's configs to known-good states"
+NAME=reset_state
+SCRIPTNAME=/etc/init.d/reset_state
+
+# OLSR configuration variables.
+OLSRD=/etc/olsrd/olsrd.conf
+OLSRDBAK=/etc/olsrd/olsrd.conf.bak
+
+case "$1" in
+  start|restart)
+	echo "Removing gateway routes from olsrd.conf." 1>&2
+	if [ ! -f $OLSRD ]; then
+	    echo "ERROR: I see no $OLSRD file here." 1>&2
+	else
+	    if [ -f $OLSRDBAK ]; then
+		rm -f $OLSRDBAK
+	    fi
+	    mv -f $OLSRD $OLSRDBAK
+	    grep -v '^Hna4 ' $OLSRDBAK > $OLSRD
+	fi
+	;;
+  stop|status)
+       ;;
+  *)
+	# Error trap/help text.
+	echo "Usage: $SCRIPTNAME {start|stop|status|restart}" >&2
+	exit 3
+	;;
+esac
+
+:
