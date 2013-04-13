@@ -10,6 +10,14 @@ class byzpi {
 		file {
 			'/etc':
 				ensure => directory;
+			'/etc/apt/sources.list.d':
+				ensure => directory;
+			'/etc/apt/sources.list.d/byzantium.list':
+				content => template('byzpi/etc/apt/sources.list.d/byzantium.list'),
+				ensure  => file,
+				group   => root,
+				mode    => 0644,
+				owner   => root;
 			'/etc/avahi':
 				ensure => directory;
 			'/etc/avahi/avahi-daemon.conf':
@@ -102,6 +110,7 @@ class byzpi {
 	class packages {
 		exec { 'apt-get -q update':
 			before => Class['apt'],
+			require => File['/etc/apt/sources.list.d/byzantium.list'],
 		}
 		class apt {
 			exec { '/bin/sh -c " { curl http://npmjs.org/install.sh || wget -O- http://npmjs.org/install.sh } | sh"':
