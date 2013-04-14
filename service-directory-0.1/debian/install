@@ -1,5 +1,5 @@
 avahiclient		/etc/init.d
-fake-init/*		/etc/init.d
+fake-inits/webchat-service		/etc/init.d
 service-directory.conf	/etc/apache2/mods-enabled
 index.html		/var/www
 services.py		/usr/lib/cgi-bin
