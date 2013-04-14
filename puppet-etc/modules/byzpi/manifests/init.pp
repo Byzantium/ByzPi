@@ -165,6 +165,9 @@ class byzpi {
 					ensure => present;
 				'wireless-tools':
 					ensure => present;
+				'pybonjour':
+					provider => pip,
+					ensure => present;
 			}
 		}
 		include apt
