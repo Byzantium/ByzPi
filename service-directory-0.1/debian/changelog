@@ -1,3 +1,11 @@
+service-directory (0.1-2) unstable; urgency=low
+
+  * Haxwithaxe made some serious changes to the code to clean it up a little
+    and make it more flexible.  This is a new build of the package with his
+    new code in it.
+
+ -- The Doctor <drwho@virtadpt.net>  Sat, 13 Apr 2013 23:57:26 -0400
+
 service-directory (0.1-1) unstable; urgency=low
 
   * Initial release.

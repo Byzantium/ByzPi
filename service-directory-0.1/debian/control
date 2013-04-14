@@ -9,7 +9,7 @@ Vcs-Git: git://github.com/Byzantium/Byzantium.git
 
 Package: service-directory
 Architecture: all
-Depends: apache2, avahi-daemon, bash, python
+Depends: apache2, avahi-daemon, bash, libavahi-compat-libdnssd1, libavahi-client3, python
 Description: Byzantium node service directory.
  This is the collection of Python CGI-BIN scripts, shell scripts, and HTML that
  makes up the service directory on the frontpage of every Byzantium node.
