@@ -25,6 +25,11 @@ case "$1" in
 
         echo "Installing initscript for etherpad-lite." 1>&2
         update-rc.d etherpad-lite defaults
+
+        echo "Creating compatibility link for nodejs." 1>&2
+	if [ ! -f /usr/bin/node ]; then
+	    ln -s /usr/bin/nodejs /usr/bin/node
+	fi
         ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
