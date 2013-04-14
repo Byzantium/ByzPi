@@ -133,6 +133,10 @@ class byzpi {
 					ensure => present;
 				'iputils-arping':
 					ensure => present;
+				'libavahi-compat-libdnssd1':
+					ensure => present;
+				'libavahi-client3':
+					ensure => present;
 				'nodejs':
 					ensure => present;
 				'npm':
