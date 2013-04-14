@@ -7,7 +7,6 @@ import _utils
 
 conf = _utils.Config()
 
-
 def has_internet():
     '''
     determine whether there is an internet connection available with a reasonable amount of certainty.
@@ -17,16 +16,16 @@ def has_internet():
     return False
 
 def main():
-    service_entry = _utils.file2str('tmpl/services_entry.tmpl')
-    page = _utils.file2str('tmpl/services_page.tmpl')
+    service_entry = _utils.file2str(conf.services_directory_entry_template)
+    page = _utils.file2str(conf.services_directory_page_template)
     services_list = _services.get_services_list()
-    if not services_list:
-        page = page % {'service-list':conf.no_services_msg}
-    else:
+    vals = conf.services_directory_template_dict.copy()
+    if services_list and len(services_list) < 0:
         services_html = ''
         for entry in services_list:
             services_html += service_entry % entry
-        page = page % {'service-list':services_html}
+        vals['service-list'] = services_html
+    page = page % vals
     return page
 
 if __name__ == '__main__':
