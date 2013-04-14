@@ -12,9 +12,6 @@
 # By default this script does nothing.
 
 # Byzantium stuff goes here.
-echo "Generating SSL certificate."
-/etc/init.d/ssl
-
 echo "Starting Apache."
 /etc/init.d/apache2 start
 
