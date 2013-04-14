@@ -1,0 +1,46 @@
+#!/bin/sh
+echo "Fake init script for the webchat service"
+initd="/etc/init.d/"
+ircd="inspircd"
+webirc="qwebirc"
+
+dependancies=( $ircd $webirc )
+
+not_avail(){
+	echo $1 is not a valid command for this script
+}
+_do(){
+	for s in $dependancies ;do
+		echo $s
+		if [ -f ${initd}/$s ] ;then
+			echo ${initd}/$s exists
+			${initd}/$s $1 || exit 1
+		else
+			echo ${initd}/$s does not exist
+			exit 1
+		fi
+	done
+	exit 0
+}
+
+usage(){
+	echo "$0 start|stop|restart|status"
+}
+
+case "$1" in
+	"start")
+		not_avail $1
+		;;
+	"stop")
+		not_avail $1
+		;;
+	"status")
+		_do $1
+		;;
+	"restart")
+		not_avail $1
+		;;
+	*)
+		usage
+		;;
+esac
