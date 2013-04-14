@@ -2,11 +2,9 @@ BINDIR = $(DESTDIR)/usr/share/etherpad-lite
 INITDIR = $(DESTDIR)/etc/init.d
 
 build:
-	cd etherpad-lite
-	make
-	cd ..
+	@echo "I should be building stuff here but I'm not."
 
-install: build
+install:
 	mkdir -p $(BINDIR)
 	mkdir -p $(INITDIR)
 	cp -a etherpad-lite/bin $(BINDIR)
@@ -15,13 +13,13 @@ install: build
 	cp -a etherpad-lite/tests $(BINDIR)
 	cp -a etherpad-lite/tools $(BINDIR)
 	cp -a etherpad-lite/var $(BINDIR)
-	cp *.md LICENSE Makefile settings.json.template start.bat $(BINDIR)
+	cp etherpad-lite/*.md etherpad-lite/LICENSE $(BINDIR)
+	cp etherpad-lite/Makefile etherpad-lite/settings.json.template $(BINDIR)
+	cp etherpad-lite/start.bat $(BINDIR)
 	cp etherpad-lite.init $(INITDIR)/etherpad-lite
 
 uninstall:
 	rm -rf $(BINDIR) $(INITDIR)
 
 clean:
-	cd etherpad-lite
-	make clean
-	cd ..
+	@echo "I should be cleaning out old files here but I'm not."

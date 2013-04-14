@@ -7,3 +7,7 @@ Check out the etherpad-lite source code from
     https://github.com/ether/etherpad-lite.git
 
 
+cd etherpad-lite
+make
+cd ..
+
