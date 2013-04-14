@@ -1,0 +1,26 @@
+This work was packaged for Debian by:
+
+    The Doctor <drwho@virtadpt.net> on Sun, 14 Apr 2013 17:20:26 -0400
+
+It was downloaded from:
+
+    https://github.com/ether/etherpad-lite
+
+Upstream Author(s):
+
+    The Etherpad Community (http://etherpad.org/)
+
+Copyright:
+
+    The Etherpad Community (http://etherpad.org/)
+
+Etherpad-Lite's License:
+
+    Apache License v2
+
+The Debian packaging files are
+
+    Copyright (C) 2013 The Doctor <drwho@virtadpt.net>
+
+and are licensed under the GPL version 3, see /usr/share/common-licenses/GPL-3.
+

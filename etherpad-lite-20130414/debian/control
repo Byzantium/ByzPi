@@ -1,0 +1,15 @@
+Source: etherpad-lite
+Section: unknown
+Priority: extra
+Maintainer: The Doctor <drwho@virtadpt.net>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+Homepage: http://etherpad.org/
+Vcs-Git: https://github.com/ether/etherpad-lite.git
+
+Package: etherpad-lite
+Architecture: all
+Depends: build-essential, curl, git-core, gzip, libssl-dev, nodejs, npm, pkg-config, python
+Description: Lightweight online collaborative text editor.
+ Etherpad-Lite is what Google Docs originally grew out of.  It's an online
+ collaborative text editor based upon node.js.  We packaged it ourselves.
