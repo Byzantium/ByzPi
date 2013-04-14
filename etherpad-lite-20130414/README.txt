@@ -6,4 +6,7 @@ Check out the etherpad-lite source code from
 
     https://github.com/ether/etherpad-lite.git
 
+To build the Debian package, run the command
+
+    debuild
 
