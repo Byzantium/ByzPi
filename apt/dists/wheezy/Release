@@ -3,13 +3,13 @@ Label: Project Byzantium
 Suite: wheezy
 Codename: wheezy
 Version: 6.0.7
-Date: Sun, 14 Apr 2013 04:22:13 UTC
+Date: Sun, 14 Apr 2013 20:29:54 UTC
 Architectures: armhf
 Components: main contrib
 Description: ByzPi packages and modified or replacement Debian packages
 MD5Sum:
- 70b939048f55d4e5ed01a717253e46d8 3672 main/binary-armhf/Packages
- 196c2f7f387f7c3be169a00da8368192 1542 main/binary-armhf/Packages.gz
+ 8ff60f1b807ecd4e5eb07deeb48e9e5d 3672 main/binary-armhf/Packages
+ 570feb770afb6c1d3b930f1c134b15f6 1541 main/binary-armhf/Packages.gz
  5006eef2eaf23e48eb2b6e8a7db23bd1 190 main/binary-armhf/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-armhf/Packages
  7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-armhf/Packages.gz
@@ -25,8 +25,8 @@ MD5Sum:
  7029066c27ac6f5ef18d660d5741979a 20 contrib/source/Sources.gz
  6e5bc96a1c8f0dac22ece5ed7e047ed0 194 contrib/source/Release
 SHA1:
- 77bd3fbd758dc909d9b354c70c116b09d39f6a0a 3672 main/binary-armhf/Packages
- f9ff3897fbe62fbf9f38e3a48b43b14f353fb00e 1542 main/binary-armhf/Packages.gz
+ eb7f3f411dae6d376cde1c65730ff1f60e94dbb2 3672 main/binary-armhf/Packages
+ 982244b4a8adbeaa4b9aea1bdd6cbcd2ce77f754 1541 main/binary-armhf/Packages.gz
  1c2dbf847d8af351441c22e2d77efc0b61121ce0 190 main/binary-armhf/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-armhf/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-armhf/Packages.gz
@@ -42,8 +42,8 @@ SHA1:
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 contrib/source/Sources.gz
  155deea219f2d04936bcd5731058a7ba16de64fe 194 contrib/source/Release
 SHA256:
- 34cfae5805240aa59dd6423e8bca5dbe1a859853f53e1bffed117e63feec8a59 3672 main/binary-armhf/Packages
- 3077e844c210d714b26cdb311f9912592ee389f1eb14dac34c1d35540b39ff5a 1542 main/binary-armhf/Packages.gz
+ d17614e86b5b0cd44dc24b0763c6c1404fabe209100197868a1049a0fb81b542 3672 main/binary-armhf/Packages
+ f2b6fe01dabd5d358d495873b79ffccda806e1041e1d78a39ccab862daaeed96 1541 main/binary-armhf/Packages.gz
  e68c4e6b10dd252b54790548545082f0cae5d651aca0edf75beef4a17ba41729 190 main/binary-armhf/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-armhf/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-armhf/Packages.gz

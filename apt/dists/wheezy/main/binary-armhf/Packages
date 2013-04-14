@@ -64,10 +64,10 @@ Homepage: http://project-byzantium.org/
 Priority: extra
 Section: unknown
 Filename: pool/main/s/service-directory/service-directory_0.1-2_all.deb
-Size: 7524
-SHA256: d4621aaaaf8ca5f8399fb2ffa96be19ab811361209d673fbe468cda3d4371969
-SHA1: 15062cf6f7e770ad7c51436db299c2e3a6561137
-MD5sum: 202e512473638721051256c6251bfc6b
+Size: 7612
+SHA256: af3c103b67728b60f87d26813022d64f4e2ee4b632437fde9c28255c3310dce4
+SHA1: 08344103001f5c36792de4dc92ec87192f4819c3
+MD5sum: 5c3f1a9bbb913176b764262e8113592e
 Description: Byzantium node service directory.
  This is the collection of Python CGI-BIN scripts, shell scripts, and HTML that
  makes up the service directory on the frontpage of every Byzantium node.
