@@ -1,8 +1,8 @@
 #!/bin/bash
 ### BEGIN INIT INFO
 # Provides:          ssl
-# Required-Start:    $syslog
-# Required-Stop:     $syslog
+# Required-Start:    apache2
+# Required-Stop:     apache2
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: Generates SSL certs if they don't exist.
