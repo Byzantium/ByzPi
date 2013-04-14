@@ -1,6 +1,6 @@
 #!/bin/bash
 ### BEGIN INIT INFO
-# Provides:          ssll
+# Provides:          ssl
 # Required-Start:    $syslog
 # Required-Stop:     $syslog
 # Default-Start:     2 3 4 5
