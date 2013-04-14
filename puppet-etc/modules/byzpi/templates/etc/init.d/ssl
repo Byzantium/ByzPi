@@ -54,7 +54,14 @@ case "$1" in
 
 	chmod 0644 $PRIVATE_KEY $CERT_SIGN_REQ $CERT
 	;;
+    stop)
+	# This is a no-op here to prevent the shutdown process from carping.
+	;;
+    status)
+	echo "SSL related files that exist on this node:"
+	ls -alF $PRIVATE_KEY $CERT_SIGN_REQ $CERT $DH
+	;;
     *)
-        echo "Usage: $0 start"
+        echo "Usage: $0 [start|stop|status]"
 esac
 
