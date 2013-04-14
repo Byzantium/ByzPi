@@ -1,10 +1,12 @@
 avahiclient		/etc/init.d
+fake-init/*	/etc/init.d
 service-directory.conf	/etc/apache2/mods-enabled
 index.html		/var/www
 services.py		/usr/lib/cgi-bin
 _services.py		/usr/lib/cgi-bin
 _utils.py		/usr/lib/cgi-bin
 tmpl/			/usr/lib/cgi-bin
+service.conf	/opt/byzantium
 avahiclient.sh		/opt/byzantium/avahi
 avahiclient.py		/opt/byzantium/avahi
 _utils.py		/opt/byzantium/avahi
