@@ -22,5 +22,6 @@ uninstall:
 	rm -rf $(BINDIR) $(INITDIR)
 
 clean:
-	./clean.py
-	rm -f config.py
+	cd etherpad-lite
+	make clean
+	cd ..
