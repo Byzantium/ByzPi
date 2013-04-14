@@ -28,17 +28,17 @@ CERT_SIGN_REQ=$SERVER_DIR/server.csr
 CERT=$SERVER_DIR/server.crt
 DH=$SERVER_DIR/dhparams.pem
 
-# Test for the presence of the server cert.  If it exists we don't have to do
-# anything, so terminate the initscript and start over.
-if [ -f $CERT ]; then
-    echo "SSL certificate exists.  We don't have to start over."
-    exit 0
-    fi
-
 case "$1" in
     start)
+	# Test for the presence of the server cert.  If it exists we don't
+	# have to do anything, so terminate the initscript and start over.
+	if [ -f $CERT ]; then
+	    echo "SSL certificate exists.  We don't have to start over."
+	    exit 0
+	    fi
+
 	# Server certificate not found.  We may as well blow everything away
-	# and start over because nothing will match up, anyway.
+	# and start over because whatever files are left won't match up, anyway.
 	rm -f $PRIVATE_KEY $CERT_SIGN_REQ $CERT $DH
 
 	# Generate the private key.
