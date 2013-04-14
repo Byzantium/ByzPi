@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# postinst script for the etherpad-lite Debian package.
+# By: The Doctor [412/724/301/703][ZS] <drwho@virtadpt.net>
+# For: ByzPi (http://project-byzantium.org/)
+# License: GPLv3
+
+# Terminate on all errors.
+set -e
+
+# The command line options passed to this script are passed by the dpkg
+# utility whenever it's installed or deleted.
+case "$1" in
+    configure)
+        echo "Adding unprivileged user account for etherpad-lite." 1>&2
+        adduser --system --group --quiet --home /usr/share/etherpad-lite \
+	    --no-create-home --disabled-login etherpad-lite
+
+        echo "Creating logfile for etherpad-lite." 1>&2
+	mkdir -p /var/log/etherpad-lite
+	chown etherpad-lite.etherpad-lite /var/log/etherpad-lite
+        touch /var/log/etherpad-lite/etherpad-lite.log
+	chown etherpad-lite.etherpad-lite \
+	    /var/log/etherpad-lite/etherpad-lite.log
+
+        echo "Installing initscript for etherpad-lite." 1>&2
+        update-rc.d etherpad-lite defaults
+        ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        echo "Stopping etherpad-lite." 1>&2
+        service etherpad-lite stop
+
+        echo "Deleting log directory so the directory can be removed." 1>&2
+        rm -f /var/log/etherpad-lite
+
+        echo "Removing etherpad-lite from the list of system services." 1>&2
+        update-rc.d -f etherpad-lite remove
+        ;;
+
+    *)
+        echo "Unknown command line argument $1 passed to $0." 1>&2
+        exit 1
+        ;;
+esac
+
+# Clean up after ourselves.
+exit 0
