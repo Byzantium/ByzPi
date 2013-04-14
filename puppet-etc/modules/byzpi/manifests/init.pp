@@ -206,6 +206,7 @@ class byzpi {
 					ensure    => running,
 					subscribe => [File['/opt/qwebirc/config.py'], Package['qwebirc']];
 				'reset_state':
+					require   => File['/etc/init.d/reset_state'],
 					enable    => true,
 					ensure    => running;
 				'ssl':
