@@ -98,7 +98,7 @@ class Config(object):
         self.init_dir = '/etc/init.d' # for debian
 
     def get_services_config(self):
-        return ini2list(os.path.join(self.byzantium_conf_dir,'services.conf'))
+        return ini2list(os.path.join(self.byzantium_conf_dir,'service.conf'))
 
     def list_services(self):
         services = []
