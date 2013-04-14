@@ -5,6 +5,7 @@
 # Required-Stop:     $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
+# X-Start-Before:    ifplugd
 # Short-Description: Resets configuration files.
 # Description:       Some configuration files can be altered during a node's
 #                    life due to changes in mesh network dynamics.  Persistent
