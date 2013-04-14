@@ -34,19 +34,39 @@
 	<body>
 		<article>
 			<header>
-				<h1>ByzPi APT Repo</h1>
+				<h1>ByzPi Install Instructions</h1>
 			</header>
 			<section>
-				<p>Usage:</p>
-				<p>Either use the <a title="ByzPi for Raspian install script" href="install.sh">install script</a> by running:</p>
+				<p>
+					First, make sure that you have a fresh Raspbian image
+					installed on your SD card. When setting up the image don't
+					forget to expand the partition and select the correct
+					keymap for your keyboard. By default it uses a UK keymap
+					which makes things difficult if you have a US keyboard.
+				</p>
+				<p>Easy way:</p>
+				<p>Use the <a title="ByzPi for Raspian install script" href="install.sh">install script</a> by running:</p>
 				<p><code>curl -s http://byzantium.github.io/ByzPi/install.sh | bash</code></p>
 				<p><span class="bold-text">Or</span></p>
-				<p>Add </p> 
+				<p>Add our repo</p> 
 				<p class="tabbed"><code>deb http://byzantium.github.io/ByzPi/apt/ wheezy main contrib</code></p>
-				<p class="tabbed">To</p>
-				<p class="tabbed-2"><code>/etc/apt/sources.list.d/byzantium.list</code> <span class="em">(recommended)</span></p>
-				<p class="tabbed-2">or</p>
-				<p class="tabbed-2"><code>/etc/apt/sources.list</code></p>
+				<p class="tabbed">To:</p>
+				<p class="tabbed"><code>/etc/apt/sources.list.d/byzantium.list</code></p>
+				<p>Install our signing key</p>
+				<p class="tabbed"><code>wget http://byzantium.github.io/ByzPi/public.key</code></p>
+				<p class="tabbed"><code>sudo apt-key add public.key</code></p>
+				<p>Install git and puppet</p>
+				<p class="tabbed"><code>sudo apt-get install git puppet</code></p>
+				<p class="tabbed">This may take about 15 minutes depending on your Internet speed.</p>
+				<p>Checkout our repository</p>
+				<p class="tabbed"><code>git clone git://github.com/Byzantium/ByzPi.git</code></p>
+				<p>Install the 'byzpi' puppet module</p>
+				<p class="tabbed"><code>sudo ln -sf "$(pwd)/ByzPi/puppet-etc/modules/byzpi/" /etc/puppet/modules/byzpi</code></p>
+				<p>Apply the puppet config</p>
+				<p class="tabbed"><code>sudo puppet apply -e 'include byzpi'</code></p>
+				<p class="tabbed">This may take about half an hour depending on your Internet speed.</p>
+				<p>Reboot your Pi</p>
+				<p class="tabbed"><code>sudo reboot</code></p>
 			</section>
 		</article>
 	</body>
