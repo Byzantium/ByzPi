@@ -1,4 +1,4 @@
-class nodejs($node_ver = 'v0.6.17') {
+class nodejs($node_ver = 'v0.9.9') {
 
   $node_tar = "node-${node_ver}.tar.gz"
   $node_unpacked = "node-${node_ver}"
