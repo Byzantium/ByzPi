@@ -96,6 +96,12 @@ class byzpi {
 				group   => root,
 				mode    => 0644,
 				owner   => root;
+			'/usr/share/etherpad-lite/settings.json':
+				content => template('byzpi/usr/share/etherpad-lite/settings.json'),
+				ensure  => file,
+				group   => root,
+				mode    => 0644,
+				owner   => root;
 		}
 	}
 	include files
@@ -204,6 +210,9 @@ class byzpi {
 				'dnsmasq':
 					enable    => false,
 					subscribe => [File['/etc/dnsmasq.conf'], Package['dnsmasq']];
+				'etherpad-lite':
+					enable    => true,
+					ensure    => running;
 				'ifplugd':
 					enable    => true,
 					ensure    => running,
