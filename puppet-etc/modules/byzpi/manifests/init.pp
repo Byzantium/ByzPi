@@ -171,6 +171,8 @@ class byzpi {
 					ensure => present;
 				'wireless-tools':
 					ensure => present;
+				'zd1211-firmware':
+					ensure => present;
 				'pybonjour':
 					provider => pip,
 					ensure => present;
