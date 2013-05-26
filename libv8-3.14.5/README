@@ -1,0 +1,16 @@
+Download the libv8 tarball from the Debian project's archive here:
+
+http://ftp.de.debian.org/debian/pool/main/libv/libv8-3.14/libv8-3.14_3.14.5.8.orig.tar.gz
+
+Uncompress it into a temporary directory and copy the debian/ directory
+tree into it with `cp -R`.  The .orig tarball is a Git checkout, and is named
+with the SHA-1 hash, so we can't just uncompress it into this directory.
+On the other hand, if this particular directory was named the same way
+(v8-6b10fef46edfb4dc2a7aed389d75574c40a14243/) the package wouldn't build
+correctly.  It took ages to compile on a RaspberryPi and I'm not going to do
+it again.
+
+Then run the command `dpkg-buildpackage`.  It'll take two or three hours on a
+real RasPi, so you might want to consider running it inside of a QEMU VM.
+
+--The Doctor
