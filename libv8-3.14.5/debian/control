@@ -1,0 +1,50 @@
+Source: libv8-3.14
+Priority: optional
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Jérémy Lal <kapouer@melix.org>,
+ Jonas Smedegaard <dr@jones.dk>
+Build-Depends: cdbs,
+ devscripts,
+ debhelper,
+ dh-buildinfo,
+ gyp
+Standards-Version: 3.9.3
+Section: libs
+Homepage: http://code.google.com/p/v8/
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/libv8.git
+Vcs-Git: git://anonscm.debian.org/git/collab-maint/libv8.git
+
+Package: libv8-3.14-dev
+Section: libdevel
+Architecture: i386 kfreebsd-i386 amd64 kfreebsd-amd64 armel armhf mipsel
+Depends: libv8-3.14.5 (= ${binary:Version}), ${misc:Depends}
+Provides: libv8-dev
+Conflicts: libv8-dev
+Replaces: libv8-dev
+Description: V8 JavaScript engine - development files
+ V8 is a high performance JavaScript engine written in C++.  It is used
+ in the web browser Chromium.
+ .
+ Install this package if you wish to develop your own programs using the
+ V8 JavaScript engine.
+
+Package: libv8-3.14.5
+Architecture: i386 kfreebsd-i386 amd64 kfreebsd-amd64 armel armhf mipsel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: V8 JavaScript engine - runtime library
+ V8 is a high performance JavaScript engine written in C++.  It is used
+ in the web browser Chromium.
+ .
+ This package includes the dynamic library against which you can link
+ your program.
+
+Package: libv8-3.14-dbg
+Priority: extra
+Section: debug
+Architecture: i386 kfreebsd-i386 amd64 kfreebsd-amd64 armel armhf mipsel
+Depends: libv8-3.14.5 (= ${binary:Version}), ${misc:Depends}
+Description: V8 JavaScript engine - debugging symbols
+ V8 is a high performance JavaScript engine written in C++.  It is used
+ in the web browser Chromium.
+ .
+ This package provides the debugging symbols for the library.

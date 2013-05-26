@@ -1,0 +1,4 @@
+# Compulsory line, this is a version 3 file
+version=3
+
+https://github.com/v8/v8/tags .*/archive/(__watchBranch__[\d.]*).tar.gz

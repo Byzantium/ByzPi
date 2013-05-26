@@ -1,0 +1,658 @@
+libv8-3.14 (3.14.5.8-3) experimental; urgency=low
+
+  * 0001_kfreebsd.patch: fix tests runner in previous broken patch.
+
+ -- Jérémy Lal <kapouer@melix.org>  Sat, 04 May 2013 23:33:58 +0200
+
+libv8-3.14 (3.14.5.8-2) experimental; urgency=low
+
+  * Fix mipsel build (upstream follows same archs names as debian).
+  * 0001_kfreebsd.patch: work around kfreebsd tests runner failure,
+    "This platform lacks a functioning sem_open implementation".
+
+ -- Jérémy Lal <kapouer@melix.org>  Wed, 01 May 2013 23:18:05 +0200
+
+libv8-3.14 (3.14.5.8-1) experimental; urgency=low
+
+  [ upstream ]
+  * New release.
+
+  [ Jérémy Lal ]
+  * Update patches:
+    + Update 0001_kfreebsd: Partially fixed upstream.
+    + Remove 0013_performance_regression_fix: Applied upstream.
+    + Unfuzz patches.
+  * Update version numbers in watch file and package names/dependencies
+    to reflect curent upstream version.
+  * Build-depend unversioned on cdbs: Needed version satisfied in stable
+    and oldstable no longer supported.
+  * Append CPPFLAGS to CXXFLAGS and export LDFLAGS to let gyp catch
+    hardening flags.
+    Maybe fixes hardening (see bug#689754).
+  * Fix remove all *.pyc files below tools dir.
+  * Update copyright file:
+    + Extend coverage for main copyright holder with current year.
+    + Add tools/testrunner/server/daemon.py (in the Public Domain).
+
+  [ Jonas Smedegaard ]
+  * Explicitly mention Public Domain file as such in Copyright field.
+  * Have git-import-orig suppress upstream .gitignore file.
+  * Drop obsolete "DM-Upload-Allowed" control file field.
+  * Update to use anonscm.debian.org URL for Vcs-Git field.
+  * Track upstream source via github mirror (not limited-use
+    googlecode.com SVN tags).
+  * Include CDBS upstream-tarball snippet, and setup get-orig-source
+    target.
+  * Tidy README.source:
+    + Drop obsolete sections.
+    + Refer to common CDBS+git-buildpackage praxis.
+    + Emphasize explicitly that NMUs can totally ignore control.in.
+  * Tidy rules file: Resolve version strings in fewer shell calls.
+  * Use versioned source package name, to allow multiple branches to
+    coexist: Nodejs often needs more stable release than Chromium.
+  * Git-ignore quilt .pc dir.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Tue, 19 Mar 2013 03:20:03 +0100
+
+libv8 (3.10.8.16-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Jérémy Lal ]
+  * Simplify SONAME naming to only first 3 segments of upstream version
+    (i.e. skip patch level). Add chapter on reasoning to README.source.
+  * Enable architectures kfreebsd-i386, kfreebsd-amd64 and mipsel.
+    + Force mips3 (Loongson) support.
+    + Set test timeout to 400 seconds for mipsel.
+    Closes:bug#670836. Thanks to Steven Chamberlain.
+  * Update patches:
+    + Drop patches 0014 (disable cross-build) and issue9316131 (fix init
+      array literals on ARM): Applied upstream.
+    + Add patch 0001: Fix build flags for kfreebsd and
+      unused-but-set-variable warning for gcc >= 4.6.
+      Thanks to Steven Chamberlain.
+    + Add patch 0012: Force cache flush on Loongson.
+      Fixes mipsel tests.
+    + Add patch 0013: Fix performance regression.
+    + Refresh all remaining patches.
+  * Add MIT license to copyright file for benchmarks/navier-stokes.js.
+  * Autogenerate watch file, to track current branch (= major+minor of
+    upstream version).
+
+  [ Jonas Smedegaard ]
+  * Update copyright file:
+    + Bump file format to 1.0.
+    + Fix double-indent in Copyright fields as per Policy §5.6.13.
+  * Fix capitalize project name in copyright and long descriptions.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 23 Jun 2012 13:07:52 +0200
+
+libv8 (3.8.9.20-2) unstable; urgency=low
+
+  * Cherry-picked four upstream patches from 3.8.9.29:
+    + r11654.patch: fix CVE-2011-3111, closes:bug#687574.
+    + r12161.patch: Fix ICs for slow objects with native accessor.
+    + r12336.patch: Fix bug in compare IC.
+    + r12460.patch: Fix some corner cases in skipping native methods
+                    using caller. Fix binding in new Function().
+
+ -- Jérémy Lal <kapouer@melix.org>  Sat, 29 Sep 2012 01:04:06 +0200
+
+libv8 (3.8.9.20-1) unstable; urgency=low
+
+  [ Jérémy Lal ]
+  * Upstream update.
+  * Remove mipsel from Architecture list.
+    v8 3.8 branch only supports mips32r2 cpu variant. This excludes
+    Loongson 2E (mips3). Closes:bug#667991.
+  * Unset specific mipsel build flags set in 3.8.9.16-3, now unneeded.
+
+  [ Jonas Smedegaard ]
+  * Use anonscm.debian.org for Vcs-Browser field.
+  * Define supported archs in rules file (auto-expanded in control
+    file).
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 28 Apr 2012 00:02:42 +0200
+
+libv8 (3.8.9.16-3) unstable; urgency=low
+
+  * mipsel build fixes :
+    + v8_use_mips_abi_hardfloat=false, this lowers EABI requirements.
+    + v8_can_use_fpu_instructions=false, detect if FPU is present.
+    + set -Wno-unused-but-set-variable only on mipsel.
+
+ -- Jérémy Lal <kapouer@melix.org>  Sat, 07 Apr 2012 16:26:13 +0200
+
+libv8 (3.8.9.16-2) unstable; urgency=low
+
+  [ Jonas Smedegaard ]
+  * Bump standards-version to 3.9.3.
+
+  [ Jérémy Lal ]
+  * Re-enable -Wno-unused-but-set-variable, fails on mipsel otherwise.
+  * Upstream patch for failing armel smi arrays, closes:bug#666906.
+    + debian/patches/issue9316131_5001.diff
+
+ -- Jérémy Lal <kapouer@melix.org>  Sun, 01 Apr 2012 09:14:23 +0200
+
+libv8 (3.8.9.16-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Jérémy Lal ]
+  * Remove patches:
+    + 0005-enable-i18n-extension: Handled by libv8-i18n now.
+    + 0015_enable_mips_tests.patch: applied upstream.
+  * Stop build-depending on libicu-dev: Handled by libv8-i18n now.
+  * Update copyright file:
+    + Add Files paragraph covering build/android.gypi.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 31 Mar 2012 17:53:29 +0200
+
+libv8 (3.7.12.22-3) unstable; urgency=low
+
+  * Fix mipsel build, allow test debug-step-3 to fail (non-crucial)
+
+ -- Jérémy Lal <kapouer@melix.org>  Mon, 20 Feb 2012 14:08:17 +0100
+
+libv8 (3.7.12.22-2) unstable; urgency=low
+
+  * Adjust tests timeout from 120 to 180 seconds because build server
+    can be busy sometimes.
+  * Fix failing "make check" for mips arch in:
+    + debian/patches/0015_enable_mips_tests.patch
+
+ -- Jérémy Lal <kapouer@melix.org>  Sun, 19 Feb 2012 18:18:57 +0100
+
+libv8 (3.7.12.22-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Jérémy Lal ]
+  * Enable mipsel arch.
+  * Refresh patches. Remove unnecessary patches:
+    + 0010_fix_arm_bug.patch (applied upstream).
+    + 0012_make_check_testsuites.patch (uses TESTFLAGS, not TESTSUITES).
+    + 0013_enable_soname.patch (applied upstream).
+    + 0015_hash-collision-fix-v8-3.6.patch (applied upstream.
+  * Fix tabs and whitespaces in debian/samples.gyp.
+  * Stop setting v8_can_use_unaligned_accesses=false during build: works
+    without it - and it even may be triggering an alignment bug.
+
+  [ Jonas Smedegaard ]
+  * Update copyright file:
+    + Extend (and shorten) some copyright years.
+    + Fix paths of a few files.
+    + Rewrap comments at 72 chars.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 13 Feb 2012 20:18:39 +0100
+
+libv8 (3.6.6.14-2) unstable; urgency=low
+
+  * Land hash collision fix for V8 3.6. Closes: bug#653962.
+    This fixes CVE-2011-5037.
+  * snapshot=off, because hash is randomized by a secret key that is
+    otherwise readable in the snapshot.
+
+ -- Jérémy Lal <kapouer@melix.org>  Sat, 07 Jan 2012 22:29:06 +0100
+
+libv8 (3.6.6.14-1) unstable; urgency=low
+
+  [ Jérémy Lal ]
+  * Upstream update.
+  * Refresh patches. Remove unused 0009_unaligned_access_armel.patch.
+  * Add samples/*.cc, samples/*.js and provide usable samples.gyp
+    to libv8-dev examples. Closes: bug#612362.
+  * Update watch file: Track 3.6.x releases.
+
+  [ Jonas Smedegaard ]
+  * Newline-separate package relations in control file.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Tue, 03 Jan 2012 22:00:29 +0100
+
+libv8 (3.5.10.24-4) unstable; urgency=low
+
+  * v8_use_arm_eabi_hardfloat must be passed in GYPFLAGS,
+    this should fix armhf build.
+  * Ubuntu vendor needs different armel architecture settings.
+
+ -- Jérémy Lal <kapouer@melix.org>  Mon, 05 Dec 2011 11:36:38 +0100
+
+libv8 (3.5.10.24-3) unstable; urgency=low
+
+  * Fix build failures for arm:
+    + arm_neon=0 for armhf
+    + vfp3=off for armel
+    Closes: bug#650548
+
+ -- Jérémy Lal <kapouer@melix.org>  Fri, 02 Dec 2011 10:17:48 +0100
+
+libv8 (3.5.10.24-2) unstable; urgency=low
+
+  * Set -Wno-unused-but-set-variable, i386 build fail otherwise.
+    Closes: bug#650547
+  * Remove mipsel from architectures. Will be re-enabled when
+    upstream really supports it.
+    Closes: bug#650549
+  * Disable default arm flags (debian/0014_disable_armv7_defaults.patch) and
+    set them properly for armel and armhf, using GYPFLAGS variable in
+    debian/rules. Closes: bug#650548
+  * Remove 0009_unaligned_access_armel.patch, never proved it was needed.
+  * Remove -fvisibility=hidden flag, applied upstream.
+  * CCFLAGS are ignored by the build system, use CXXFLAGS instead.
+
+ -- Jérémy Lal <kapouer@melix.org>  Thu, 01 Dec 2011 14:31:59 +0100
+
+libv8 (3.5.10.24-1) unstable; urgency=low
+
+  * New upstream release.
+  [ Jérémy Lal ]
+  * Build using gyp (instead of deprecated scons build):
+    + removed scons patches
+    + added gyp patches to achieve the same result.
+  * Remove mipsel architecture, not yet supported upstream.
+  * Tests are run using d8 instead of shell.
+  * Allow parallel builds.
+  * Update watch file: Track 3.5.x releases.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 26 Nov 2011 00:34:40 +0700
+
+libv8 (3.4.14.21-5) unstable; urgency=low
+
+  [ Jakub Wilk ]
+  * Add patch (taken from upstream VCS) to fix compatibility with ICU 4.8
+    Closes: bug#648506.
+    Thanks to Julien Cristau for the bug report.
+
+ -- Jérémy Lal <kapouer@melix.org>  Tue, 15 Nov 2011 23:07:20 +0100
+
+libv8 (3.4.14.21-4) unstable; urgency=low
+
+  * Fix armel tests. Closes: bug#644163.
+    Thanks to Vyacheslav Egorov. 
+
+ -- Jérémy Lal <kapouer@melix.org>  Fri, 21 Oct 2011 16:24:05 +0200
+
+libv8 (3.4.14.21-3) unstable; urgency=low
+
+  * Disable VFP for armel
+  * Disable unaligned access for armel
+
+ -- Jérémy Lal <kapouer@melix.org>  Wed, 28 Sep 2011 23:14:48 +0200
+
+libv8 (3.4.14.21-2) unstable; urgency=low
+
+  [ Jonas Smedegaard ]
+  * Rewrite short and long descriptions. Closes: bug#624374.
+    Thanks to Erik Esterer.
+
+  [ Jérémy Lal ]
+  * Redirect output of mksnapshot to stdout. This helps armel debugging.
+  * Backport of fix for upstream issue#1706: unaligned access on armel.
+
+ -- Jérémy Lal <kapouer@melix.org>  Wed, 28 Sep 2011 11:25:48 +0200
+
+libv8 (3.4.14.21-1) unstable; urgency=low
+
+  [ Jérémy Lal ]
+  * New upstream release.
+  * Adds -mno-thumb-interwork on armel (armeabi:softfp).
+    Upstream does not support thumb interworking < armv5t.
+    However it is supported on armhf.
+  * Move compiler flags for arm in debian/rules, instead of setting
+    them using a quilt patch.
+  * Relax build-dependencies on cdbs (unneededly tight) and debhelper
+    (needed version satisfied even in oldstable).
+  * Tests timeout after 120 seconds, instead of 60.
+    Some builders can have slower machines.
+
+  [ Jonas Smedegaard ]
+  * Update watch file: Track 3.4.x releases.
+  * Relax build-dependency on devscripts (needed version satisfied even
+    in oldstable).
+  * Update copyright file:
+    + Fix use Source: (not Upstream-Source:).
+    + Newline-delimit file list.
+    + Use ~ as indicator for derived licenses.
+    + Shorten license comment, and quote license name.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 17 Sep 2011 16:55:28 +0200
+
+libv8 (3.4.14.13-4) experimental; urgency=low
+
+  * Export I18NExtension::get and I18NExtension::Register.
+    Closes: bug#639596.
+
+ -- Jérémy Lal <kapouer@melix.org>  Sun, 04 Sep 2011 15:41:48 +0200
+
+libv8 (3.4.14.13-3) experimental; urgency=low
+
+  * move I18NExtension from v8::internal to v8_i18n namespace,
+    following the externalization of i18n extension in chromium 15.
+    Closes: bug#639596.
+
+ -- Jérémy Lal <kapouer@melix.org>  Sun, 04 Sep 2011 10:35:09 +0200
+
+libv8 (3.4.14.13-2) experimental; urgency=low
+
+  * fix include of "v8.h" in i18n-extension.h
+    Closes: bug#639522. Thanks to Giuseppe Iuculano.
+
+ -- Jérémy Lal <kapouer@melix.org>  Sun, 28 Aug 2011 00:15:25 +0200
+
+libv8 (3.4.14.13-1) experimental; urgency=low
+
+  * New upstream release.
+
+  [ Jérémy Lal ]
+  * Bump version in debian/control (and debian/control.in)
+
+  [ Jonas Smedegaard ]
+  * Add patch 0007 to fix armhf.
+    Closes: bug#636370. Thanks to Konstantinos Margaritis.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Wed, 24 Aug 2011 01:21:27 +0200
+
+libv8 (3.4.14-1) experimental; urgency=low
+
+  * New upstream release.
+
+  [ Jérémy Lal ]
+  * mipsel architecture added.
+  * Fix FTBFS with gcc 4.6 using -Wnounused-but-set-variable.
+    Closes: bug#625377.
+  * Enable i18n experimental extension: reworked, could be broken.
+  * Unfuzz patches.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 23 Jul 2011 01:14:22 +0200
+
+libv8 (3.1.8.22-1) unstable; urgency=low
+
+  [ Jérémy Lal ]
+  * Enable i18n experimental extension. Build-Depends on libicu-dev.
+    Closes: bug#627066. Thanks to Giuseppe Iuculano.
+  * Stop special-casing some regression tests on armel (introduced in
+    3.1.8.10-2): Solved by disabling cctests (since 3.1.8.10-3).
+
+  [ Jonas Smedegaard ]
+  * Unfuzz patches.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 20 Jun 2011 22:24:02 +0200
+
+libv8 (3.1.8.10-3) unstable; urgency=low
+
+  * Disable cctests : they fail from time to time and are meant
+    to be used for upstream development purposes. Only javascript
+    tests are run.
+
+ -- Jérémy Lal <kapouer@melix.org>  Sat, 23 Apr 2011 13:47:42 +0200
+
+libv8 (3.1.8.10-2) unstable; urgency=low
+
+  * Temporarily allow some tests to fail on armel builds.
+    Closes: bug#623449.
+  * Turn on verbose output when running tests. 
+
+ -- Jérémy Lal <kapouer@melix.org>  Fri, 22 Apr 2011 16:51:10 +0200
+
+libv8 (3.1.8.10-1) unstable; urgency=low
+
+  [ Jérémy Lal ]
+  * New upstream release. 
+
+  [ Jonas Smedegaard ]
+  * Bump policy compliance to standards-version 3.9.2.
+  * Bump copyright file format to draft 174 of DEP-5.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 16 Apr 2011 12:59:59 +0200
+
+libv8 (2.5.9.21-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Jérémy Lal ]
+  * Relax regression checking to not cause build to fail.
+  * Use DEB_SCONS_ENVVARS to define SONAME, removing the need for the
+    soname patch, and allowing builds with gold linker. 
+
+  [ Jonas Smedegaard ]
+  * Only relax regression checking when targeted experimental.
+  * Let CDBS auto-resolve build-dependencies and library package name.
+  * Fix tighten build-dependencies on cdbs and debhelper.
+  * Build-depend on dh-buildinfo.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Tue, 29 Mar 2011 12:41:52 +0200
+
+libv8 (2.5.9.16-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Jérémy Lal ]
+  * Add architecture armhf.
+    Closes: #596997
+
+  [ Jonas Smedegaard ]
+  * Rewrite copyright file using draft svn166 of DEP5 format.
+  * Supress copyright-checking a few binary files, to not upset
+    dpkg-source.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Thu, 24 Feb 2011 16:51:54 +0100
+
+libv8 (2.5.9.15-2) unstable; urgency=low
+
+  * Builds with snapshot=on. (Closes: #612781) 
+
+ -- Jérémy Lal <kapouer@melix.org>  Sat, 12 Feb 2011 02:27:40 +0100
+
+libv8 (2.5.9.15-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Jérémy Lal ]
+  * Map DEB_HOST_ARCH and DEB_HOST_ARCH_OS to v8 scons options 'arch'
+    and 'os'. (Closes: #611215)
+    Move to team-maintainance, with me as maintainer and Jonas
+    Smedegaard as uploader.
+    Drop Antonio Radici as uploader: Thanks for your contributions,
+    Antonio!
+
+  [ Jonas Smedegaard ]
+  * Tidy CDBS variables internally in rules file.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 07 Feb 2011 01:36:39 +0100
+
+libv8 (2.5.9.9-2) unstable; urgency=low
+
+  * Include v8stdint.h in libv8-dev. 
+
+ -- Jérémy Lal <kapouer@melix.org>  Thu, 20 Jan 2011 23:26:46 +0100
+
+libv8 (2.5.9.9-1) unstable; urgency=low
+
+  * New upstream release.
+    followed the procedure of README.source to update.
+  * Fix FTBFS on armel. (Closes: #599713)
+  * No longer flag march=armv4t, it's the default debian armel target.
+    (Closes: #596997)
+  * Fix typo in libv8-dbg short description. (Closes: #601855)
+
+ -- Jérémy Lal <kapouer@melix.org>  Thu, 06 Jan 2011 18:02:20 +0100
+
+libv8 (2.4.7-2) experimental; urgency=low
+
+  * Fix FTBFS on armel with -Wno-psabi. For more info :
+    http://gcc.gnu.org/bugzilla/show_bug.cgi?id=42748
+  * Fix FTBFS on mipsel, just remove it, it is not supported upstream,
+    and anyway it won't compile in the 2.2 or 2.3 branches.
+  * Respect policy 4.9.1 for DEB_BUILD_OPTIONS nocheck and parallel.
+  * Remove unused code from debian/rules.
+
+ -- Jérémy Lal <kapouer@melix.org>  Sat, 09 Oct 2010 21:26:14 +0200
+
+libv8 (2.4.7-1) experimental; urgency=low
+
+  * New upstream release, followed the procedure of README.source to update.
+  * Removed patch issue3037008_6001.diff, applied upstream.
+  * Removed part of 0002-armel-build.patch, applied upstream.
+  * Target for amd64 is x64, not ia32.
+  * Remove GCC_VERSION=44, no longer needed.
+  * Runs cctest and mjsunit tests after build.
+
+ -- Jérémy Lal <kapouer@melix.org>  Sat, 02 Oct 2010 12:01:53 +0200
+
+libv8 (2.2.24-6) unstable; urgency=low
+
+  * CVE-2010-3412 (Closes: #597856)
+    Race condition in the console implementation in Google Chrome before
+    6.0.472.59 has unspecified impact and attack vectors.
+
+ -- Jérémy Lal <kapouer@melix.org>  Fri, 24 Sep 2010 11:44:57 +0200
+
+libv8 (2.2.24-5) unstable; urgency=low
+
+  * Standards-Version 3.9.1. Nothing had to be changed to comply.
+  * Fix chromium-browser: priority optional, depends on libv8 which
+    has priority extra. (Closes: #591148)
+  * Compile with GCC_VERSION=44.
+    With that option, v8 pass all tests, and setting a breakpoint
+    in chromium inspector does not crash. (Closes: #584562)
+
+ -- Jérémy Lal <kapouer@melix.org>  Thu, 12 Aug 2010 23:39:43 +0200
+
+libv8 (2.2.24-4) unstable; urgency=low
+
+  * Replace arch: mips with mipsel (on the three packages) 
+
+ -- Jérémy Lal <kapouer@melix.org>  Sun, 25 Jul 2010 09:49:03 +0200
+
+libv8 (2.2.24-3) unstable; urgency=low
+
+  * Replace arch: mips with mipsel, because only little endian is supported. 
+
+ -- Jérémy Lal <kapouer@melix.org>  Sat, 24 Jul 2010 13:43:28 +0200
+
+libv8 (2.2.24-2) unstable; urgency=low
+
+  * Upstream patch : fix for...in loops for strings.
+    http://codereview.chromium.org/3037008 
+
+ -- Jérémy Lal <kapouer@melix.org>  Mon, 19 Jul 2010 14:55:22 +0200
+
+libv8 (2.2.24-1) unstable; urgency=low
+
+  * New upstream release, followed the procedure of README.source to update.
+  * Standards-Version 3.9.0
+  * Build for armv4 instead of armv5, fix ARMV5 detection. (Closes: #589057)
+  * Include v8-profiler.h in libv8-dev. (Closes: #589584)
+
+ -- Jérémy Lal <kapouer@melix.org>  Wed, 14 Jul 2010 18:56:09 +0200
+
+libv8 (2.2.18-1) unstable; urgency=low
+
+  * New upstream release, followed the procedure of README.source to update. 
+  * Drops 0005-constraints-visibility.patch (applied upstream).
+
+ -- Jérémy Lal <kapouer@melix.org>  Thu, 17 Jun 2010 00:06:53 +0200
+
+libv8 (2.2.7-1) unstable; urgency=low
+
+  * New upstream release, followed the procedure of README.source to update
+  * debian/patches:
+    + 0005-constraints-visibility.patch: export SetResourceConstraints to allow
+      chromium to compile cleanly
+
+ -- Antonio Radici <antonio@dyne.org>  Sun, 09 May 2010 21:29:33 +0100
+
+libv8 (2.2.6-1) unstable; urgency=low
+
+  [ Jérémy Lal ]
+  * New upstream release, previous procedure followed.
+  * Switch to dpkg-source 3.0 (quilt) format.
+  * Uses scons.mk from cdbs.
+
+  [ Antonio Radici ]
+  * debian/control: added Jérémy to the Uploaders
+  * debian/patches: 
+    + added mips64 to 0003-platform-detection-x86_64-and-mips.patch
+
+ -- Antonio Radici <antonio@dyne.org>  Sat, 01 May 2010 20:04:11 +0100
+
+libv8 (2.1.10-1) unstable; urgency=low
+
+  * New upstream release
+    + debian/rules: SONAME updated
+    + debian/control: updated any reference to the old version
+    + debian/patches/0001-enable_soname.patch: SONAME updated
+    + debian/libv8-$VERSION.install renamed with the new version
+  * debian/patches:
+    + 0001-enable_soname.patch: slightly modified to use the right SONAME
+    + 0004-add-the-install-target.patch: refreshed
+  * debian/README.source: added a procedure to update to a new version
+    once the correct version is imported
+
+ -- Antonio Radici <antonio@dyne.org>  Sat, 27 Mar 2010 15:12:42 +0000
+
+libv8 (2.1.6-1) unstable; urgency=low
+
+  [ Antonio Radici ]
+  * New upstream release
+    + package should now build clean with gcc-4.5 (Closes: 565030)
+    + debian/rules: SONAME var updated
+    + debian/libv8-2.0.3.install edited and renamed to libv8-2.1.6.install
+    + debian/control: s/2.0.3/2.1.6/
+  * debian/control: Standards-Version bumped to 3.8.4 (no changes required)
+  * debian/patches:
+    + refreshed all patches
+    + x86_64_code.patch: changed to drop any reference to ia64 
+      (it does not seem to build there)
+
+  [ Jérémy Lal ]
+  * debian/copyright: updated to reflect the missing files/dates
+  * debian/patches:
+    + new naming scheme which preserves the ordering
+    + added mips to the x86_64_code.patch
+
+ -- Antonio Radici <antonio@dyne.org>  Sun, 21 Mar 2010 10:58:49 +0000
+
+libv8 (2.0.3-2) unstable; urgency=low
+
+  * Modified the upstream soname (from libv8-2.0.3.so to libv8.so.2.0.3)
+    + restored patches/enable_soname.patch
+    + restore the link commands in debian/rules
+  * Added a libv8-2.0.3.install so that the package is not empty anymore
+    + (Closes: 560433)
+
+ -- Antonio Radici <antonio@dyne.org>  Fri, 11 Dec 2009 20:33:23 +0000
+
+libv8 (2.0.3-1) unstable; urgency=low
+
+  * New upstream release
+  * restored jsmin.py, now it is DFSG compliant
+    + debian/copyright modified accordingly
+    + debian/repack.sh not needed anymore
+    + debian/patches: remove-jsmin.patch deleted
+  * using the library's SONAME (2.0.3)
+    + debian/control: libv8-0 renamed to libv8-2.0.3
+    + debian/patches: deleted enable_soname.patch
+    + debian/rules: adapted to support the upstream SONAME
+    + debian/libv8-0.symbols: removed, we will not maintain the symbols file
+  * debian/patches: all patches refreshed against the latest upstream
+  * debian/patches/x86_64_code.patch: support for ia64
+
+ -- Antonio Radici <antonio@dyne.org>  Mon, 07 Dec 2009 19:07:51 +0000
+
+libv8 (1.3.11+dfsg-2) unstable; urgency=low
+
+  * debian/patches:
+    + armel-build.patch: adding march armv5t to build on armel (Closes: 8636294)
+    + x86_64_code.patch: build 64 bit code on x86_64 (Closes: 548467, 550448)
+  * debian/watch: excluded '..' from the versions (Closes: 550581)
+  * debian/changelog: added DM-Upload-Allowed: yes
+
+ -- Antonio Radici <antonio@dyne.org>  Sun, 11 Oct 2009 13:33:11 +0100
+
+libv8 (1.3.11+dfsg-1) unstable; urgency=low
+
+  * Initial release (Closes: #497701)
+
+ -- Antonio Radici <antonio@dyne.org>  Wed, 16 Sep 2009 23:01:31 +0100

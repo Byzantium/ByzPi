@@ -1,0 +1,136 @@
+#!/usr/bin/make -f
+
+# This needs to run before inclusion of CDBS snippets
+debian/control:: debian/control.in debian/watch
+DEB_PHONY_RULES += debian/control.in
+debian/control.in::
+	sed $(foreach re,API ABI ARCHS,-e 's/__$(re)__/$($(re))/g') \
+		< debian/control.in.in > debian/control.in
+
+debian/watch::
+	sed $(foreach re,API ABI ARCHS,-e 's/__$(re)__/$($(re))/g') \
+		< debian/control.in.in > debian/control.in
+
+include /usr/share/cdbs/1/rules/upstream-tarball.mk
+include /usr/share/cdbs/1/rules/utils.mk
+include /usr/share/cdbs/1/class/makefile.mk
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+# See README.source for details on these.
+MAJOR = $(word 1, $(subst .,$(space), $(DEB_UPSTREAM_VERSION)))
+MINOR = $(word 2, $(subst .,$(space), $(DEB_UPSTREAM_VERSION)))
+BUILD = $(word 3, $(subst .,$(space), $(DEB_UPSTREAM_VERSION)))
+API = $(MAJOR).$(MINOR)
+ABI = $(MAJOR).$(MINOR).$(BUILD)
+LIBSTEM = libv8.so
+watchBranch = $(MAJOR)\\.$(MINOR)
+
+DEB_UPSTREAM_URL = https://github.com/v8/v8/archive
+# TODO: use $(DEB_UPSTREAM_TARBALL_VERSION) when upstream properly tags release
+DEB_UPSTREAM_TARBALL_BASENAME =  6b10fef46e
+DEB_UPSTREAM_TARBALL_MD5 = be049128a44adf26f4dfb7d1ab55acfd
+
+# Supported archs
+ARCHS = i386 kfreebsd-i386 amd64 kfreebsd-amd64 armel armhf mipsel
+
+# allow parallel builds
+DEB_BUILD_PARALLEL=1
+
+# suppress checking binary files, to not upset dpkg-source
+DEB_COPYRIGHT_CHECK_IGNORE_REGEX = ^(benchmarks/v8-logo\.png|test/mjsunit/unicode-test\.js|debian/(changelog|copyright(|_hints|_newhints)))$
+
+# dpkg-gensymbols(1) - this is not needed since we are not using symbols
+# DEB_DH_MAKESHLIBS_ARGS = -- -c4
+
+# map HOST ARCH AND OS to v8 options
+v8arch := $(or $(v8arch),$(if $(filter i386,$(DEB_HOST_ARCH)),ia32))
+v8arch := $(or $(v8arch),$(if $(filter kfreebsd-i386,$(DEB_HOST_ARCH)),ia32))
+v8arch := $(or $(v8arch),$(if $(filter amd64,$(DEB_HOST_ARCH)),x64))
+v8arch := $(or $(v8arch),$(if $(filter kfreebsd-amd64,$(DEB_HOST_ARCH)),x64))
+v8arch := $(or $(v8arch),$(if $(filter armel,$(DEB_HOST_ARCH)),arm))
+v8arch := $(or $(v8arch),$(if $(filter armhf,$(DEB_HOST_ARCH)),arm))
+v8arch := $(or $(v8arch),$(if $(filter mipsel,$(DEB_HOST_ARCH)),mipsel))
+v8arch := $(or $(v8arch),$(DEB_HOST_ARCH))
+v8os := $(or $(v8os),$(if $(filter linux,$(DEB_HOST_ARCH_OS)),linux))
+v8os := $(or $(v8os),$(if $(filter kfreebsd,$(DEB_HOST_ARCH_OS)),freebsd))
+v8os := $(or $(v8os),$(DEB_HOST_ARCH_OS))
+
+GYPFLAGS += -Dhost_arch=$(v8arch) -DOS=$(v8os)
+
+# the default test timeout in seconds
+timeOut = 180
+
+# build for loongson, which uses mips3, a sub-instruction-set of mips32r2
+ifeq (mipsel, $(DEB_HOST_ARCH))
+GYPFLAGS += -Dmips_arch_variant=loongson
+timeOut = 400
+endif
+
+# armel and armhf arches need flags to work around those issues :
+# -fno-tree-sink: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=39604
+# -Wno-psabi: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=42748
+ifeq (armhf, $(DEB_HOST_ARCH))
+CXXFLAGS += -fno-tree-sink
+CXXFLAGS += -Wno-psabi
+# enable armv7 vfpv3
+GYPFLAGS += -Darmv7=1 -Darm_fpu=vfpv3 -Darm_neon=0 -Dv8_use_arm_eabi_hardfloat=true
+endif
+
+ifeq (armel, $(DEB_HOST_ARCH))
+CXXFLAGS += -fno-tree-sink
+CXXFLAGS += -Wno-psabi
+ifeq ($(shell dpkg-vendor --is ubuntu && echo true),true)
+# Ubuntu targets armv7+ with VFP and thumb2 support by default for armel
+GYPFLAGS += -Darmv7=1 -Darm_fpu=vfpv3 -Darm_neon=0 -Dv8_use_arm_eabi_hardfloat=false
+else
+DEB_MAKE_EXTRA_ARGS += vfp3=off
+# Disable thumb-interworking because v8 supports it only on >= armv5t.
+# http://code.google.com/p/v8/issues/detail?id=590
+CXXFLAGS += -mno-thumb-interwork
+# disable armv7, use softfloat
+GYPFLAGS += -Darmv7=0 -Dv8_use_arm_eabi_hardfloat=false
+endif
+endif
+
+# hardening gyp
+CXXFLAGS+=$(CPPFLAGS)
+export LDFLAGS
+
+export CXXFLAGS
+export GYPFLAGS
+
+DEB_MAKE_EXTRA_ARGS += library=shared snapshot=off soname_version=$(ABI) OS=$(v8os) V=1 
+DEB_MAKE_CLEAN_TARGET = clean
+DEB_MAKE_BUILD_TARGET = $(v8arch).release
+
+v8out = $(CURDIR)/out/$(v8arch).release/lib.target/$(LIBSTEM).$(ABI)
+
+# regression tests
+#  * relax regression tests when targeted experimental suite
+#  * run only javascript tests, cctests are for development purposes
+DEB_MAKE_CHECK_TARGET = $(v8arch).release.check \
+	LD_PRELOAD=$(v8out) \
+	TESTFLAGS="--no-presubmit mjsunit message preparser" \
+	TESTJOBS="$(DEB_MAKE_PARALLEL) --timeout=$(timeOut)" \
+	$(if $(shell dpkg-parsechangelog | grep -Fx 'Distribution: experimental'),|| true)
+
+DEB_INSTALL_EXAMPLES_libv8-$(API)-dev = samples/*.cc samples/*.js debian/samples.gyp
+DEB_DH_INSTALL_ARGS_libv8-$(ABI) = usr/lib/$(LIBSTEM).$(ABI)
+
+# Setup dynamically named debhelper install file during build
+pre-build::
+	cp -f debian/libv8-__API__-dev.install.in debian/libv8-$(API)-dev.install
+clean::
+	rm -f debian/libv8-$(API)-dev.install
+
+clean::
+	rm -rf out
+	find tools/ -name "*.pyc" -exec rm -f '{}' \;
+	rm -f test/*/*.pyc
+	rm -f test/*/*.status2
+
+common-install-impl::
+	mkdir -p debian/tmp/usr/lib ; \
+	cd debian/tmp/usr/lib ; \
+	cp $(v8out) . ; \
+	ln -s -T $(LIBSTEM).$(ABI) $(LIBSTEM)
