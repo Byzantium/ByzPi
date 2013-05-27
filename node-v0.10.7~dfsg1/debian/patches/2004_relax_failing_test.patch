@@ -1,0 +1,17 @@
+Description: Relax test failing with recent v8
+Author: Jérémy Lal <kapouer@melix.org>
+Origin: http://lists.alioth.debian.org/pipermail/pkg-javascript-devel/2012-July/003951.html
+Last-Update: 2012-07-26
+
+--- a/test/message/stack_overflow.out
++++ b/test/message/stack_overflow.out
+@@ -1,6 +1,6 @@
+ before
+ 
+-*test*message*stack_overflow.js:31
+-function stackOverflow() {
+-                      ^
++*test*message*stack_overflow.js:*
++*function*
++*^
+ RangeError: Maximum call stack size exceeded

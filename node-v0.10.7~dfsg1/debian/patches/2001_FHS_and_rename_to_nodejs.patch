@@ -1,0 +1,34 @@
+Description: FHS path for nodejs, rename man page to nodejs.
+ Use /usr/lib/nodejs for packaged modules.
+ 
+Forwarded: not-needed
+Author: Jérémy Lal <kapouer@melix.org>
+Last-Update: 2013-03-16
+--- a/lib/module.js
++++ b/lib/module.js
+@@ -508,7 +508,7 @@
+     var homeDir = process.env.HOME;
+   }
+ 
+-  var paths = [path.resolve(process.execPath, '..', '..', 'lib', 'node')];
++  var paths = ['/usr/lib/nodejs'];
+ 
+   if (homeDir) {
+     paths.unshift(path.resolve(homeDir, '.node_libraries'));
+--- a/doc/node.1
++++ b/doc/node.1
+@@ -2,12 +2,12 @@
+ 
+ 
+ .SH "NAME"
+-node \- Server-side JavaScript
++nodejs \- Server-side JavaScript
+ 
+ .SH SYNOPSIS
+ 
+ 
+-.B node
++.B nodejs
+ [
+ .B \-v
+ ]

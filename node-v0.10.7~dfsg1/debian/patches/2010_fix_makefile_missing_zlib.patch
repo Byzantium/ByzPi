@@ -1,0 +1,15 @@
+Description: Fix Makefile missing zlib
+Author: Jérémy Lal <kapouer@melix.org>
+Forwarded: not-needed
+Last-Update: 2013-03-16
+--- a/Makefile
++++ b/Makefile
+@@ -43,7 +43,7 @@
+ 	ln -fs out/Debug/node $@
+ endif
+ 
+-out/Makefile: common.gypi deps/uv/uv.gyp deps/http_parser/http_parser.gyp deps/zlib/zlib.gyp deps/v8/build/common.gypi deps/v8/tools/gyp/v8.gyp node.gyp config.gypi
++out/Makefile: common.gypi deps/uv/uv.gyp deps/http_parser/http_parser.gyp deps/v8/build/common.gypi deps/v8/tools/gyp/v8.gyp node.gyp config.gypi
+ ifeq ($(USE_NINJA),1)
+ 	touch out/Makefile
+ 	$(PYTHON) tools/gyp_node -f ninja

@@ -1,0 +1,9 @@
+Document: nodejs-api
+Title: Node API Manual
+Author: Ryan Dahl
+Abstract: This manual describes the API and command-line usage of Node.
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/nodejs/api/index.html
+Files: /usr/share/doc/nodejs/api/*.html

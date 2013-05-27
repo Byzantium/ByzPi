@@ -1,0 +1,62 @@
+#!/usr/bin/make -f
+
+-include /usr/share/cdbs/1/rules/upstream-tarball.mk
+include /usr/share/cdbs/1/rules/utils.mk
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/autotools.mk
+
+DEB_UPSTREAM_URL = http://nodejs.org/dist/v$(DEB_UPSTREAM_TARBALL_VERSION)
+DEB_UPSTREAM_TARBALL_BASENAME = node-v$(DEB_UPSTREAM_TARBALL_VERSION)
+
+DEB_UPSTREAM_WGET_OPTS += --no-check-certificate
+# ./deps/npm contains some non-DFSG files, repackaging is needed.
+# Conveniently, remove unused software to ease debian/copyright maintenance.
+DEB_UPSTREAM_REPACKAGE_EXCLUDES += \
+./deps/npm/ \
+./deps/openssl/ \
+./deps/zlib/ \
+./deps/cares/ \
+./test/gc/node_modules/ \
+./tools/blog/ \
+./tools/gyp/ \
+./tools/closure_linter/ \
+./tools/msvs/genfiles/ \
+./tools/wrk/
+
+DEB_UPSTREAM_REPACKAGE_TAG = $(shell echo $(DEB_UPSTREAM_VERSION) | egrep -o "dfsg[0-9]+")
+
+# suppress checking binary files, to not upset dpkg-source
+DEB_COPYRIGHT_CHECK_IGNORE_REGEX = ^(doc/trademark-policy\.pdf|doc/mac_osx_nodejs_installer_logo\.png|doc/.*-white-stripe\.jpg|favicon\.ico|deps/v8/benchmarks/v8-logo\.png|test/fixtures/person\.jpg.*|src/res/node\.ico|debian/(changelog|copyright(|_hints|_newhints)))$
+
+DEB_CONFIGURE_NORMAL_ARGS = ""
+DEB_CONFIGURE_EXTRA_FLAGS = --debug --without-npm --shared-v8 --without-snapshot --shared-cares --shared-openssl --shared-zlib --prefix=/usr
+DEB_DESTDIR = $(CURDIR)/debian/tmp
+DEB_MAKE_CLEAN_TARGET = clean
+#  * relax regression tests when targeted experimental suite
+exp-relax-check := $(if $(shell dpkg-parsechangelog | grep -x 'Distribution: \(experimental\|UNRELEASED\)'),-i)
+DEB_MAKE_CHECK_TARGET = $(exp-relax-check) test
+
+# hardening gyp
+CXXFLAGS+=$(CPPFLAGS)
+export CXXFLAGS
+export LDFLAGS
+
+# properly clean files from build, test, python
+clean::
+	rm -f config.gypi
+	rm -f config.mk
+	rm -f test/fixtures/hello.txt
+	rm -rf test/tmp
+	find . -name "*.pyc" -delete
+	rm -rf out
+
+binary-post-install/nodejs::
+	mv debian/nodejs/usr/bin/node debian/nodejs/usr/bin/nodejs
+	mv debian/nodejs/usr/share/man/man1/node.1 debian/nodejs/usr/share/man/man1/nodejs.1
+
+# remove *.json files from documentation
+# remove all <script> tags from html files, js files are not installed anyway
+# TODO: when doc will be generated from markdown, patch doc/template.html instead
+binary-install/nodejs::
+	find debian/nodejs/usr/share/doc/nodejs -name *.json -delete
+	sed -i -n '1h; 1!H; $${g; s/<script[^><]*>[^><]*<.script[^><]*>//g; p;}' debian/nodejs/usr/share/doc/nodejs/api/*.html

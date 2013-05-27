@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "configure" ]; then
+	if dpkg --compare-versions "$2" le 0.6.19~dfsg1-2; then
+		update-alternatives --remove js /usr/bin/node
+	fi
+
+    update-alternatives --install /usr/bin/js js /usr/bin/nodejs 200 \
+                        --slave /usr/share/man/man1/js.1.gz js.1.gz /usr/share/man/man1/nodejs.1.gz
+fi
+
+#DEBHELPER#
