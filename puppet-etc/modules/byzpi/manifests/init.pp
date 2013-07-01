@@ -127,6 +127,10 @@ class byzpi {
 					ensure => present;
 				'avahi-utils':
 					ensure => present;
+				'ax25-apps':
+					ensure => present;
+				'ax25-tools':
+					ensure => present;
 				'captive-portal-daemon':
 					ensure => present;
 				'dhcpcd5':
@@ -142,6 +146,8 @@ class byzpi {
 				'libavahi-compat-libdnssd1':
 					ensure => present;
 				'libavahi-client3':
+					ensure => present;
+				'libax25':
 					ensure => present;
 				'nodejs':
 					ensure => present;
