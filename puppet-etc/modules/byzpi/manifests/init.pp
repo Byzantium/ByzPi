@@ -167,7 +167,11 @@ class byzpi {
 					ensure => present;
 				'python-markupsafe':
 					ensure => present;
+				'python-pip':
+					ensure => present;
 				'python-setuptools':
+					ensure => present;
+				'python-virtualenv':
 					ensure => present;
 				'qwebirc':
 					ensure => present;
