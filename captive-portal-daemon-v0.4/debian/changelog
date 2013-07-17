@@ -1,3 +1,9 @@
+captive-portal-daemon (0.4-1) unstable; urgency=low
+
+  * Updated captive portal daemon to latest stable release from v0.5b.
+
+ -- The Doctor <drwho@virtadpt.net>  Thu, 16 Jul 2013 20:48:09 -0400
+
 captive-portal-daemon (0.3-1) unstable; urgency=low
 
   * Initial release.
