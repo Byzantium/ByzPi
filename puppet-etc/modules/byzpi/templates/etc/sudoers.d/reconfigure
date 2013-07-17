@@ -1,0 +1,3 @@
+## Allow any user to attempt to reconfigure the node.
+%sudo ALL=(ALL) NOPASSWD: /usr/bin/reconfigure.sh
+

@@ -110,6 +110,12 @@ class byzpi {
 				group   => root,
 				mode    => 0644,
 				owner   => root;
+			'/etc/sudoers.d/reconfigure':
+				content => template('byzpi/etc/sudoers/reconfigure'),
+				ensure  => file,
+				group   => root,
+				mode    => 0440,
+				owner   => root;
 			'/etc/network/interfaces':
 				content => template('byzpi/etc/network/interfaces'),
 				ensure  => file,
@@ -163,6 +169,8 @@ class byzpi {
 					ensure => present;
 				'ax25-tools':
 					ensure => present;
+				'ax25-xtools':
+					ensure => present;
 				'captive-portal-daemon':
 					ensure => present;
 				'dhcpcd5':
@@ -208,6 +216,8 @@ class byzpi {
 				'qwebirc':
 					ensure => present;
 				'service-directory':
+					ensure => present;
+				'soundmodem':
 					ensure => present;
 				'stunnel4':
 					ensure => present;
