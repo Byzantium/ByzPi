@@ -96,6 +96,12 @@ class byzpi {
 				group   => root,
 				mode    => 0644,
 				owner   => root;
+			'/usr/bin/reconfigure.sh':
+				content => template('byzpi/usr/bin/reconfigure.sh'),
+				ensure  => file,
+				group   => root,
+				mode    => 0644,
+				owner   => root;
 			'/usr/share/etherpad-lite/settings.json':
 				content => template('byzpi/usr/share/etherpad-lite/settings.json'),
 				ensure  => file,
