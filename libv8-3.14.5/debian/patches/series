@@ -1,0 +1,4 @@
+0001_kfreebsd.patch
+0008_mksnapshot_stdout.patch
+0011_use_system_gyp.patch
+0012_loongson_force_cache_flush.patch

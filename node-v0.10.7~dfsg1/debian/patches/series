@@ -1,0 +1,4 @@
+2001_FHS_and_rename_to_nodejs.patch
+2004_relax_failing_test.patch
+2005_expected_failing_tests.patch
+2010_fix_makefile_missing_zlib.patch

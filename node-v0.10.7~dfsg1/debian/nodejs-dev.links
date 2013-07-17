@@ -1,0 +1,6 @@
+usr/include/v8.h usr/include/nodejs/deps/v8/include/v8.h
+usr/include/v8-preparser.h usr/include/nodejs/deps/v8/include/v8-preparser.h
+usr/include/v8-profiler.h usr/include/nodejs/deps/v8/include/v8-profiler.h
+usr/include/v8stdint.h usr/include/nodejs/deps/v8/include/v8stdint.h
+usr/include/v8-testing.h usr/include/nodejs/deps/v8/include/v8-testing.h
+usr/include/v8-debug.h usr/include/nodejs/deps/v8/include/v8-debug.h

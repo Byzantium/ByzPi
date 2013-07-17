@@ -1,0 +1,21 @@
+nodejs (0.6.19~dfsg1-3) unstable; urgency=low
+
+  * The nodejs package now provides /usr/bin/nodejs, not /usr/bin/node.
+    For more information, see
+    <http://lists.debian.org/debian-devel-announce/2012/07/msg00002.html>
+
+ -- Jonas Smedegaard <dr@jones.dk>  Wed, 25 Jul 2012 17:54:27 +0200
+
+nodejs (0.4.12-2) unstable; urgency=low
+
+    Do not search for modules in /usr/local/lib/nodejs.
+    That folder, populated by npm, used to be in the search path :
+    this is a mistake, using those modules in a user project is done with
+    `npm link mymodule`, *not* by changing NODE_PATH nor require.paths.
+    System-wide search path is only /usr/lib/nodejs, where modules installed
+    by debian packages go.
+
+    npm >= 1.0 (when released) install path for 'global' modules will be
+    /usr/local/lib/node_modules.
+
+ -- Jérémy Lal <kapouer@melix.org>  Mon, 05 Dec 2011 11:34:21 +0100

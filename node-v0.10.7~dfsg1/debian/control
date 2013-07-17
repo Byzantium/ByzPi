@@ -1,0 +1,122 @@
+Source: nodejs
+Section: web
+Priority: extra
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Jérémy Lal <kapouer@melix.org>,
+ Jonas Smedegaard <dr@jones.dk>
+Build-Depends: cdbs,
+ devscripts,
+ debhelper,
+ dh-buildinfo,
+ gyp,
+ python,
+ libv8-3.14-dev,
+ binutils,
+ libssl-dev (>= 1.0.0g),
+ libc-ares-dev (>= 1.7.5),
+ openssl (>= 1.0.0g),
+ pkg-config,
+ bash-completion,
+ curl,
+ procps,
+ zlib1g-dev
+Standards-Version: 3.9.3
+Homepage: http://nodejs.org/
+Vcs-Browser: http://git.debian.org/?p=collab-maint/nodejs.git
+Vcs-Git: git://git.debian.org/git/collab-maint/nodejs.git
+
+Package: nodejs-dev
+Section: devel
+Architecture: any
+Depends: nodejs (= ${binary:Version}),
+ ${misc:Depends},
+ python,
+ libv8-3.14-dev,
+ libssl-dev (>= 1.0.0g),
+ libc-ares-dev (>= 1.7.5)
+Description: Development files for Node.js
+ Node.js provides an event-based server-side javascript engine.
+ .
+ It is similar in design to and influenced by systems like
+ Ruby's Event Machine or Python's Twisted.
+ .
+ Node.js takes the event model a bit further - it presents the event
+ loop as a language construct instead of as a library.
+ .
+ This package is needed to build plugins.
+
+Package: nodejs
+Architecture: any
+Depends: ${shlibs:Depends},
+ ${misc:Depends}
+Breaks:
+ buddycloud-server (<< 0.3.1-2),
+ carto (<< 0.4.6+ds1-2~),
+ coffeescript (<< 1.3.3-3~),
+ node-bones (<< 2.0.1+ds1-3~),
+ node-cli (<< 0.4.4~20120516-1~),
+ node-express (<< 2.5.9-2~),
+ node-get (<< 1.1.5+ds1-2~),
+ node-jake (<< 0.2.32-2~),
+ node-less (<< 1.3.0~20120310-3~),
+ node-mapnik (<< 0.6.7-3~),
+ node-mbtiles (<< 0.2.3-2~),
+ node-optimist (<< 0.3.1-2~),
+ node-semver (<< 1.0.13-2~),
+ node-tilelive (<< 4.2.1-4~),
+ node-uglify (<< 1.2.6-2~),
+ node-vows (<< 0.6.3-2~),
+ npm (<< 1.1.4~dfsg-2~),
+Description: Node.js event-based server-side javascript engine
+ Node.js is similar in design to and influenced by systems like
+ Ruby's Event Machine or Python's Twisted.
+ .
+ It takes the event model a bit further - it presents the event
+ loop as a language construct instead of as a library.
+ .
+ Node.js is bundled with several useful libraries to handle server tasks :
+ System, Events, Standard I/O, Modules, Timers, Child Processes, POSIX,
+ HTTP, Multipart Parsing, TCP, DNS, Assert, Path, URL, Query Strings.
+
+Package: nodejs-dbg
+Section: debug
+Architecture: any
+Depends: ${misc:Depends},
+ nodejs (= ${binary:Version})
+Recommends: libv8-3.14-dbg
+Description: Node.js event-based server-side javascript engine (debug)
+ Node.js is similar in design to and influenced by systems like
+ Ruby's Event Machine or Python's Twisted.
+ .
+ It takes the event model a bit further - it presents the event
+ loop as a language construct instead of as a library.
+ .
+ Node.js is bundled with several useful libraries to handle server tasks :
+ System, Events, Standard I/O, Modules, Timers, Child Processes, POSIX,
+ HTTP, Multipart Parsing, TCP, DNS, Assert, Path, URL, Query Strings.
+ .
+ This package contains the debugging symbols.
+
+Package: nodejs-legacy
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends},
+ nodejs (>= 0.6.19~dfsg1-3~)
+Conflicts: node
+Description: Node.js event-based server-side javascript engine (legacy symlink)
+ Node.js is similar in design to and influenced by systems like
+ Ruby's Event Machine or Python's Twisted.
+ .
+ It takes the event model a bit further - it presents the event
+ loop as a language construct instead of as a library.
+ .
+ Node.js is bundled with several useful libraries to handle server tasks :
+ System, Events, Standard I/O, Modules, Timers, Child Processes, POSIX,
+ HTTP, Multipart Parsing, TCP, DNS, Assert, Path, URL, Query Strings.
+ .
+ This package contains a symlink for legacy Node.js code requiring
+ binary to be /usr/bin/node (not /usr/bin/nodejs as provided in Debian).
+ .
+ No other Debian packages should depend on this package.  For more
+ information, see
+ <http://lists.debian.org/debian-devel-announce/2012/07/msg00002.html>

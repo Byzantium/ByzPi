@@ -96,6 +96,12 @@ class byzpi {
 				group   => root,
 				mode    => 0644,
 				owner   => root;
+			'/usr/share/etherpad-lite/settings.json':
+				content => template('byzpi/usr/share/etherpad-lite/settings.json'),
+				ensure  => file,
+				group   => root,
+				mode    => 0644,
+				owner   => root;
 		}
 	}
 	include files
@@ -121,6 +127,10 @@ class byzpi {
 					ensure => present;
 				'avahi-utils':
 					ensure => present;
+				'ax25-apps':
+					ensure => present;
+				'ax25-tools':
+					ensure => present;
 				'captive-portal-daemon':
 					ensure => present;
 				'dhcpcd5':
@@ -136,6 +146,8 @@ class byzpi {
 				'libavahi-compat-libdnssd1':
 					ensure => present;
 				'libavahi-client3':
+					ensure => present;
+				'libax25':
 					ensure => present;
 				'nodejs':
 					ensure => present;
@@ -155,7 +167,11 @@ class byzpi {
 					ensure => present;
 				'python-markupsafe':
 					ensure => present;
+				'python-pip':
+					ensure => present;
 				'python-setuptools':
+					ensure => present;
+				'python-virtualenv':
 					ensure => present;
 				'qwebirc':
 					ensure => present;
@@ -164,6 +180,8 @@ class byzpi {
 				'verify-operation':
 					ensure => present;
 				'wireless-tools':
+					ensure => present;
+				'zd1211-firmware':
 					ensure => present;
 				'pybonjour':
 					provider => pip,
@@ -204,6 +222,9 @@ class byzpi {
 				'dnsmasq':
 					enable    => false,
 					subscribe => [File['/etc/dnsmasq.conf'], Package['dnsmasq']];
+				'etherpad-lite':
+					enable    => true,
+					ensure    => running;
 				'ifplugd':
 					enable    => true,
 					ensure    => running,

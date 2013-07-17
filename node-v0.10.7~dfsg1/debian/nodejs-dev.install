@@ -1,0 +1,5 @@
+deps/uv/include/uv.h usr/include/nodejs/deps/uv/include
+deps/uv/include/uv-private/*.h usr/include/nodejs/deps/uv/include/uv-private
+src/*.h usr/include/nodejs/src
+common.gypi usr/include/nodejs
+

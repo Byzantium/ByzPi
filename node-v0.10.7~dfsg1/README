@@ -1,0 +1,14 @@
+Yes, I'm too lazy to type a brand-new README file.
+
+Download the node.js tarball from the Debian project's archive here:
+
+http://ftp.de.debian.org/debian/pool/main/n/nodejs/nodejs_0.10.7~dfsg1.orig.tar.gz
+
+Uncompress it into this directory with the command
+
+tar --strip-components=1 -xvzf ~/nodejs_0.10.7~dfsg1.orig.tar.gz
+
+Then run the command `dpkg-buildpackage`.  It'll take a long time in a real
+RasPi, so you might want to consider running it inside of a QEMU VM.
+
+--The Doctor

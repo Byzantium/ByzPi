@@ -44,6 +44,9 @@ case "$1" in
 	    mv -f $OLSRD $OLSRDBAK
 	    grep -v '^Hna4 ' $OLSRDBAK > $OLSRD
 	fi
+
+	echo "Deleting stale PID files." 1>&2
+	rm -rf /var/run/captive_portal.*
 	;;
   stop|status)
        ;;

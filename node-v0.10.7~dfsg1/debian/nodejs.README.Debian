@@ -1,0 +1,40 @@
+nodejs for Debian
+=================
+
+packaged modules
+----------------
+
+The global search path for modules is
+/usr/lib/nodejs
+
+Future packages of node modules will use that directory,
+so it should be used wisely.
+
+
+user modules
+------------
+
+Node looks for modules in ./node_modules directory first;
+please read node#modules documentation carefully for more information.
+
+Node does not look for modules in /usr/local/lib/node_modules,
+where npm put them.
+Please read npm-link(1) of npm package, to understand how to properly
+use npm-installed modules in a project.
+
+Note that require.paths is not supported in future node versions.
+See also node(1) for more information about NODE_PATH.
+
+
+nodejs command
+--------------
+
+The upstream name for the Node.js interpreter command is "node".
+In Debian the interpreter command has been changed to "nodejs".
+
+This was done to prevent a namespace collision: other commands use
+the same name in their upstreams, such as ax25-node from the "node"
+package.
+
+Scripts calling Node.js as a shell command must be changed to instead
+use the "nodejs" command.
