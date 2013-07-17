@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # vim: set expandtab tabstop=4 shiftwidth=4 :
-
 # Project Byzantium: http://wiki.hacdc.org/index.php/Byzantium
-# License: GPLv3
+__license__ = 'GPL v3'
 
 # captive_portal.py
 # This application implements a little web server that mesh clients will be
@@ -146,7 +145,7 @@ class CaptivePortal(object):
         logging.debug("Client's IP address: %s", clientip)
 
         # Set up the command string to add the client to the IP tables ruleset.
-        addclient = ['/usr/sbin/captive-portal.sh', 'add', clientip]
+        addclient = ['/usr/local/sbin/captive-portal.sh', 'add', clientip]
         if self.args.test:
             logging.debug("Command that would be executed:\n%s", addclient)
         else:
@@ -156,7 +155,7 @@ class CaptivePortal(object):
         redirect = """
                    <html>
                    <head>
-                   <meta http-equiv="refresh" content="0; url=http://""" + self.args.address + """/" />
+                   <meta http-equiv="refresh" content="0; url=http://""" + self.args.address + """/index.html" />
                    </head>
                    <body>
                    </body>
@@ -170,19 +169,21 @@ class CaptivePortal(object):
     whitelist.exposed = True
 
     # error_page_404(): Registered with CherryPy as the default handler for
-    # HTTP 404 errors (file or resource not found).  Takes four arguments (this
-    # is required by CherryPy), returns some HTML generated at runtime that
+    # HTTP 404 errors (file or resource not found).  Takes four arguments
+    # (required by CherryPy), returns some HTML generated at runtime that
     # redirects the client to http://<IP address>/, where it'll be caught by
     # CaptivePortal.index().  I wish there was an easier way to do this (like
     # calling self.index() directly) but the stable's fresh out of ponies.
     # We don't use any of the arguments passed to this method so I reference
-    # a few of them in debug mode.
-    def error_page_404(self, status, message, traceback):
+    # them in debug mode.
+    def error_page_404(status, message, traceback, version):
         # Extract the client's IP address from the client headers.
         clientip = cherrypy.request.headers['Remote-Addr']
         logging.debug("Client's IP address: %s", clientip)
         logging.debug("Value of status is: %s", status)
         logging.debug("Value of message is: %s", message)
+        logging.debug("Value of traceback is: %s", traceback)
+        logging.debug("Value of version is: %s", version)
 
         # Assemble some HTML to redirect the client to the captive portal's
         # /index.html-* page.
@@ -317,7 +318,7 @@ def setup_url_tree(args):
 
 def setup_iptables(args):
     # Initialize the IP tables ruleset for the node.
-    initialize_iptables = ['/usr/sbin/captive-portal.sh', 'initialize',
+    initialize_iptables = ['/usr/local/sbin/captive-portal.sh', 'initialize',
                            args.address, args.interface]
     iptables = 0
     if args.test:
@@ -329,7 +330,7 @@ def setup_iptables(args):
 
 def setup_reaper(test):
     # Start up the idle client reaper daemon.
-    idle_client_reaper = ['/usr/sbin/mop_up_dead_clients.py', '-m', '600',
+    idle_client_reaper = ['/usr/local/sbin/mop_up_dead_clients.py', '-m', '600',
                           '-i', '60']
     reaper = 0
     if test:
@@ -344,7 +345,7 @@ def setup_reaper(test):
 def setup_hijacker(args):
     # Start the fake DNS server that hijacks every resolution request with the
     # IP address of the client interface.
-    dns_hijacker = ['/usr/sbin/fake_dns.py', args.address]
+    dns_hijacker = ['/usr/local/sbin/fake_dns.py', args.address]
     hijacker = 0
     if args.test:
         logging.debug("Command that would start the fake DNS server:\n%s", ' '.join(dns_hijacker))
