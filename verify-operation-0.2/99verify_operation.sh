@@ -13,6 +13,10 @@
 # By: The Doctor [412/724/301/703] [ZS]
 # License: GPLv3
 
+# If the .desktop file for re-running the configuration daemon exists on the
+# desktop, delete it.
+rm -f ~/Desktop/retry.desktop
+
 # Set the global pass/fail flag.
 SUCCESS="true"
 
@@ -59,6 +63,10 @@ if [ $SUCCESS ]; then
     midori /srv/passfail/success.html &
 else
     midori /srv/passfail/failure.html &
+
+    # Copy the .desktop file for re-running the configuration daemon into
+    # position.
+    cp ~/retry.desktop ~/Desktop/retry.desktop
 fi
 
 # End.
