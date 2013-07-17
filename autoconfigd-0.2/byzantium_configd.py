@@ -1,7 +1,11 @@
 #!/usr/bin/python
-
 # -*- coding: utf-8 -*-
 # vim: set expandtab tabstop=4 shiftwidth=4 :
+
+# Copyright (C) 2013 Project Byzantium
+# This program is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the Free
+# Software Foundation, either version 3 of the License, or any later version.
 
 # byzantium_configd.py - A (relatively) simple daemon that automatically
 # configures wireless interfaces on a Byzantium node.  No user interaction is
@@ -33,7 +37,7 @@ bssid = '02:CA:FF:EE:BA:BE'
 essid = 'Byzantium'
 
 # Layer 3 defaults.
-mesh_netmask = '255.255.255.255'
+mesh_netmask = '255.255.0.0'
 client_netmask = '255.255.255.0'
 commotion_network = '5.0.0.0'
 commotion_netmask = '255.0.0.0'
@@ -155,11 +159,11 @@ if len(wireless):
     while ip_in_use:
         # Generate a pseudorandom IP address for the mesh interface.
         addr = '192.168.'
-        addr = addr + str(random.randint(0, 254)) + '.'
+        addr = addr + str(random.randint(0, 255)) + '.'
         addr = addr + str(random.randint(1, 254))
 
         # Use arping to see if anyone's claimed it.
-        arping = ['/usr/bin/arping', '-c 5', '-D', '-f', '-q', '-I', interface,
+        arping = ['/sbin/arping', '-c 5', '-D', '-f', '-q', '-I', interface,
                   addr]
         ip_in_use = subprocess.call(arping)
 
@@ -177,7 +181,7 @@ if len(wireless):
         addr = addr + str(random.randint(0, 254)) + '.1'
 
         # Use arping to see if anyone's claimed it.
-        arping = ['/usr/bin/arping', '-c 5', '-D', '-f', '-q', '-I', interface,
+        arping = ['/sbin/arping', '-c 5', '-D', '-f', '-q', '-I', interface,
                   addr]
         ip_in_use = subprocess.call(arping)
 
@@ -207,9 +211,8 @@ if len(wireless):
     commotion_route_return = subprocess.Popen(command)
 
     # Start the captive portal daemon on that interface.
-    captive_portal_daemon = ['/usr/sbin/captive_portal.py', '-i', interface,
-                             '-a', client_ip, '-c', '/etc/ssl/server.crt',
-                             '-k', '/etc/ssl/server.key']
+    captive_portal_daemon = ['/usr/local/sbin/captive_portal.py', '-i',
+                             interface, '-a', client_ip]
     captive_portal_return = 0
     captive_portal_return = subprocess.Popen(captive_portal_daemon)
     time.sleep(5)
@@ -226,9 +229,9 @@ prefix = octet_one + '.' + octet_two + '.' + octet_three + '.'
 # Make an /etc/hosts.mesh file, which will be used by dnsmasq to resolve its
 # mesh clients.
 hosts = open(hostsmesh, "w")
-line = prefix + str('1') + '\tbyzantium.byzantium.mesh\n'
+line = prefix + str('1') + '\tbyzantium.mesh\n'
 hosts.write(line)
-for i in range(2, 255):
+for i in range(2, 254):
     line = prefix + str(i) + '\tclient-' + prefix + str(i) + '.byzantium.mesh\n'
     hosts.write(line)
 hosts.close()
@@ -245,7 +248,7 @@ include_file.close()
 
 # Start dnsmasq.
 print "Starting dnsmasq."
-subprocess.Popen(['/etc/init.d/dnsmasq', 'restart'])
+subprocess.Popen(['/etc/rc.d/rc.dnsmasq', 'restart'])
 
 # Start olsrd.
 olsrd_command = ['/usr/sbin/olsrd', '-i']

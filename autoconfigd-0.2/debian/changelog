@@ -1,3 +1,10 @@
+autoconfigd (0.2-1) unstable; urgency=low
+
+  * Synched release of autoconfiguration daemon with the latest version in
+    v0.5b of Intel!Byzantium.
+
+ -- The Doctor <drwho@virtadpt.net>  Fri, 16 Jul 2013 20:37:26 -0400
+
 autoconfigd (0.1-4) unstable; urgency=low
 
   * Patched the daemon to pass two extra arguments to captive_portal.py when
