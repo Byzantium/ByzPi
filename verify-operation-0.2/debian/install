@@ -1,2 +1,3 @@
 99verify_operation.sh	/etc/X11/Xsession.d/
 passfail/		/srv
+retry.desktop		/home/pi/

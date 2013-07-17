@@ -1,3 +1,9 @@
+verify-operation (0.2-1) unstable; urgency=low
+
+  * Updated to latest stable version from v0.5b.
+
+ -- The Doctor <drwho@virtadpt.net>  Tue, 16 Jul 2013 21:09:07 -0400
+
 verify-operation (0.1-1) unstable; urgency=low
 
   * Initial release.
