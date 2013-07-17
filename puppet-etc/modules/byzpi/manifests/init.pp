@@ -183,6 +183,8 @@ class byzpi {
 					ensure => present;
 				'service-directory':
 					ensure => present;
+				'stunnel4':
+					ensure => present;
 				'verify-operation':
 					ensure => present;
 				'wireless-tools':
