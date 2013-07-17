@@ -10,6 +10,20 @@ class byzpi {
 		file {
 			'/etc':
 				ensure => directory;
+			'/etc/apache2/conf.d':
+				ensure => directory;
+			'/etc/apache2/conf.d/httpd-ssl.conf':
+				content => template('byzpi/etc/apache2/conf.d/httpd-ssl.conf'),
+				ensure  => file,
+				group   => root,
+				mode    => 0644,
+				owner   => root;
+			'/etc/apache2/conf.d/proxy-html.conf':
+				content => template('byzpi/etc/apache2/conf.d/proxy-html.conf'),
+				ensure  => file,
+				group   => root,
+				mode    => 0644,
+				owner   => root;
 			'/etc/avahi':
 				ensure => directory;
 			'/etc/avahi/avahi-daemon.conf':
@@ -22,6 +36,12 @@ class byzpi {
 				ensure => directory;
 			'/etc/default/ifplugd':
 				content => template('byzpi/etc/default/ifplugd'),
+				ensure  => file,
+				group   => root,
+				mode    => 0644,
+				owner   => root;
+			'/etc/default/stunnel':
+				content => template('byzpi/etc/default/stunnel'),
 				ensure  => file,
 				group   => root,
 				mode    => 0644,
@@ -80,6 +100,12 @@ class byzpi {
 				ensure => directory;
 			'/etc/ssl/openssl.cnf':
 				content => template('byzpi/etc/ssl/openssl.cnf'),
+				ensure  => file,
+				group   => root,
+				mode    => 0644,
+				owner   => root;
+			'/etc/stunnel/stunnel.conf':
+				content => template('byzpi/etc/stunnel/stunnel.conf'),
 				ensure  => file,
 				group   => root,
 				mode    => 0644,
