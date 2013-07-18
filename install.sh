@@ -29,7 +29,7 @@ if [ -d ByzPi ]; then
     cd ..
 else
     echo "Cloning ByzPi repo."
-    git clone git://github.com/Byzantium/ByzPi.git || die "Failed to checkout the ByzPi repo!"
+    git clone -b "0.5b" git://github.com/Byzantium/ByzPi.git || die "Failed to checkout the ByzPi repo!"
 fi
 
 echo "Installing the ByzPi puppet module."
