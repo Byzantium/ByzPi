@@ -111,7 +111,7 @@ class byzpi {
 				mode    => 0644,
 				owner   => root;
 			'/etc/sudoers.d/reconfigure':
-				content => template('byzpi/etc/sudoers/reconfigure'),
+				content => template('byzpi/etc/sudoers.d/reconfigure'),
 				ensure  => file,
 				group   => root,
 				mode    => 0440,
