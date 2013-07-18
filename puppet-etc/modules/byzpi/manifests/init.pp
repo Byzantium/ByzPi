@@ -41,7 +41,7 @@ class byzpi {
 				mode    => 0644,
 				owner   => root;
 			'/etc/default/stunnel':
-				content => template('byzpi/etc/default/stunnel'),
+				content => template('byzpi/etc/default/stunnel4'),
 				ensure  => file,
 				group   => root,
 				mode    => 0644,
