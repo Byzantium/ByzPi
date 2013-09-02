@@ -1,10 +1,14 @@
 #!/bin/sh
 set -e
 
+version="0.5b"
+
 die() {
 	echo $1
 	exit 1
 }
+
+echo "Installing ByzPi $version"
 
 echo "Adding our repository and apt-signing key."
 curl -s -o byzantium.key http://byzantium.github.io/ByzPi/public.key || die "Failed to download key."
@@ -25,11 +29,12 @@ echo "Checking out the ByzPi repo."
 if [ -d ByzPi ]; then
     echo "ByzPi repo exists.  Updating it just in case."
     cd ByzPi
+	git checkout $version
     git pull || die "Failed to update the ByzPi repo!"
     cd ..
 else
     echo "Cloning ByzPi repo."
-    git clone -b "0.5b" git://github.com/Byzantium/ByzPi.git || die "Failed to checkout the ByzPi repo!"
+    git clone -b $version git://github.com/Byzantium/ByzPi.git || die "Failed to checkout the ByzPi repo!"
 fi
 
 echo "Installing the ByzPi puppet module."
