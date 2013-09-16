@@ -183,6 +183,8 @@ class byzpi {
 					ensure => present;
 				'iputils-arping':
 					ensure => present;
+				'libapache2-mod-proxy-html':
+					ensure => present;
 				'libavahi-compat-libdnssd1':
 					ensure => present;
 				'libavahi-client3':
