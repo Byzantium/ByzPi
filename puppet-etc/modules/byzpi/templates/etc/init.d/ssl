@@ -28,6 +28,12 @@ CERT_SIGN_REQ=$SERVER_DIR/server.csr
 CERT=$SERVER_DIR/server.crt
 DH=$SERVER_DIR/dhparams.pem
 
+# Test to see if mod_ssl has been enabled.
+if [ ! -f /etc/apache2/mods-enabled/ssl.conf ]; then
+	echo "Enabling mod_ssl..."
+	/usr/sbin/a2enmod ssl
+fi
+
 case "$1" in
     start)
 	# Test for the presence of the server cert.  If it exists we don't
