@@ -22,7 +22,7 @@ IRCSERVER, IRCPORT = "localhost", 6667
 
 # OPTION: REALNAME
 #         The realname field of IRC clients will be set to this value.
-REALNAME = "Byzantium User"
+REALNAME = "J. Random Byzantium User"
 
 # OPTION: IDENT
 #        ident to use on irc, possible values include:
@@ -32,7 +32,7 @@ REALNAME = "Byzantium User"
 #          IDENT = IDENT_HEX
 #        - the literal value IDENT_NICKNAME, this will use the users
 #          supplied nickname as their ident.
-IDENT = "user"
+IDENT = "IDENT_NICKNAME"
 
 # OPTION: OUTGOING_IP
 #         The IP address to bind to when connecting to the IRC server.
@@ -92,12 +92,12 @@ CHANNEL = "#byzantium"
 # OPTION: BASE_URL
 #         URL that this qwebirc instance will be available at, add the
 #         port number if your instance runs on a port other than 80.
-BASE_URL = "http://localhost/"
+BASE_URL = "http://localhost:8989/"
 
 # OPTION: NETWORK_NAME
 #         The name of your IRC network, displayed throughout the
 #         application.
-NETWORK_NAME = "Byzantium Mesh"
+NETWORK_NAME = "Byzantium Mesh Network"
 
 # OPTION: APP_TITLE
 #         The title of the application in the web browser.
