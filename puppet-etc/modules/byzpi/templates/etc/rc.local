@@ -24,4 +24,10 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
+echo "Starting Groundstation."
+/etc/init.d/groundstation start
+
+#echo "Starting Etherpad."
+#/etc/init.d/etherpad-lite start
+
 exit 0
