@@ -173,6 +173,8 @@ class byzpi {
 					ensure => present;
 				'captive-portal-daemon':
 					ensure => present;
+				'charybdis':
+					ensure => present;
 				'dhcpcd5':
 					ensure => present;
 				'dnsmasq':
