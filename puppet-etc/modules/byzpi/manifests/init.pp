@@ -231,6 +231,8 @@ class byzpi {
 					ensure => present;
 				'qwebirc':
 					ensure => present;
+				'rng-tools':
+					ensure => present;
 				'service-directory':
 					ensure => present;
 				'soundmodem':
@@ -298,6 +300,9 @@ class byzpi {
 					subscribe => [File['/opt/qwebirc/config.py'], Package['qwebirc']];
 				'reset_state':
 					require   => File['/etc/init.d/reset_state'],
+					enable    => true,
+					ensure    => running;
+				'rng-tools':
 					enable    => true,
 					ensure    => running;
 				'ssl':
