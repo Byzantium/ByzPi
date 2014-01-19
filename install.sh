@@ -29,12 +29,15 @@ echo "Checking out the ByzPi repo."
 if [ -d ByzPi ]; then
     echo "ByzPi repo exists.  Updating it just in case."
     cd ByzPi
-	git checkout $version
+    git checkout master
     git pull || die "Failed to update the ByzPi repo!"
+    git checkout $version
     cd ..
 else
     echo "Cloning ByzPi repo."
-    git clone -b $version git://github.com/Byzantium/ByzPi.git || die "Failed to checkout the ByzPi repo!"
+    git clone git://github.com/Byzantium/ByzPi.git || die "Failed to checkout the ByzPi repo!"
+    cd ByzPi
+    git checkout $version
 fi
 
 echo "Installing the ByzPi puppet module."
