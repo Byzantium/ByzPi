@@ -167,6 +167,8 @@ class byzpi {
 			package {
 				'apache2':
 					ensure => present;
+				'atmel-firmware':
+					ensure => present;
 				'autoconfigd':
 					ensure => present;
 				'avahi-daemon':
@@ -201,6 +203,8 @@ class byzpi {
 					ensure => present;
 				'firmware-iwlwifi':
 					ensure => present;
+				'firmware-libertas':
+					ensure => present;
 				'firmware-linux':
 					ensure => present;
 				'firmware-ralink':
@@ -228,6 +232,8 @@ class byzpi {
 				'olsrd-plugins':
 					ensure => present;
 				'openssl-blacklist':
+					ensure => present;
+				'prism2-usb-firmware-installer':
 					ensure => present;
 				'python-openssl':
 					ensure => present;
