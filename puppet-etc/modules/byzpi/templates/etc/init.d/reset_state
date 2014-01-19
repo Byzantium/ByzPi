@@ -46,7 +46,7 @@ case "$1" in
 	fi
 
 	echo "Deleting stale PID files." 1>&2
-	rm -rf /var/run/captive_portal.*
+	rm -f /var/run/captive_portal.* /tmp/captive_portal.*
 	;;
   stop|status)
        ;;
