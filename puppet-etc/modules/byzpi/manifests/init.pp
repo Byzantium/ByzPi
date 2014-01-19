@@ -76,6 +76,12 @@ class byzpi {
 				group   => root,
 				mode    => 0755,
 				owner   => root;
+			'/etc/modules':
+				content => template('byzpi/etc/modules'),
+				ensure  => file,
+				group   => root,
+				mode    => 0644,
+				owner   => root;
 			'/etc/olsrd':
 				ensure => directory;
 			'/etc/olsrd/olsrd.conf':
