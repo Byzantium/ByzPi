@@ -40,6 +40,12 @@ class byzpi {
 				group   => root,
 				mode    => 0644,
 				owner   => root;
+			'/etc/default/rng-tools':
+				content => template('byzpi/etc/default/rng-tools'),
+				ensure  => file,
+				group   => root,
+				mode    => 0644,
+				owner   => root;
 			'/etc/default/stunnel':
 				content => template('byzpi/etc/default/stunnel4'),
 				ensure  => file,
