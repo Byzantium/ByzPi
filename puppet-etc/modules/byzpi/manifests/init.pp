@@ -191,7 +191,21 @@ class byzpi {
 					ensure => present;
 				'dnsmasq':
 					ensure => present;
+				'firmware-atheros':
+					ensure => present;
+				'firmware-brcm80211':
+					ensure => present;
+				'firmware-intelwimax':
+					ensure => present;
+				'firmware-ipw2x00':
+					ensure => present;
+				'firmware-iwlwifi':
+					ensure => present;
 				'firmware-linux':
+					ensure => present;
+				'firmware-ralink':
+					ensure => present;
+				'firmware-realtek':
 					ensure => present;
 				'ifplugd':
 					ensure => present;

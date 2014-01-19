@@ -3,7 +3,7 @@
 #    qemu-system-arm installed and that it supports the arm1176 processor.
 #    Takes two arguments, the kernel to boot and the disk image to mount.
 
-# By: The Doctor 412/724/301/703[][ZS] <drwho at virtadpt dot net>
+# By: The Doctor [412/724/301/703][ZS] <drwho at virtadpt dot net>
 # Written for Project Byzantium (http://project-byzantium.org/)
 # License: GPLv3
 
