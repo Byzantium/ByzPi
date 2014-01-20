@@ -199,8 +199,6 @@ class byzpi {
 					ensure => present;
 				'firmware-intelwimax':
 					ensure => present;
-				'firmware-ipw2x00':
-					ensure => present;
 				'firmware-iwlwifi':
 					ensure => present;
 				'firmware-libertas':
