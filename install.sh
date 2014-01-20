@@ -7,10 +7,13 @@ die() {
 }
 
 echo "Adding our repository and apt-signing key."
-curl -s -o byzantium.key http://byzantium.github.io/ByzPi/public.key || die "Failed to download key."
+wget -O byzantium.key http://byzantium.github.io/ByzPi/public.key || die "Failed to download key."
 sudo apt-key add byzantium.key || die "Failed to install key."
 rm -f byzantium.key
 echo "deb http://byzantium.github.io/ByzPi/apt/ wheezy main contrib" | sudo tee /etc/apt/sources.list.d/byzantium.list
+echo "deb http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free" | sudo tee -a /etc/apt/sources.list.d/byzantium.list
+echo "deb-src http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free" | sudo tee -a /etc/apt/sources.list.d/byzantium.list
+
 
 echo "Updating apt's cache."
 sudo apt-get -q update || die "Failed to update apt's cache!"
@@ -29,7 +32,7 @@ if [ -d ByzPi ]; then
     cd ..
 else
     echo "Cloning ByzPi repo."
-    git clone -b "0.5b" git://github.com/Byzantium/ByzPi.git || die "Failed to checkout the ByzPi repo!"
+    git clone git://github.com/Byzantium/ByzPi.git || die "Failed to checkout the ByzPi repo!"
 fi
 
 echo "Installing the ByzPi puppet module."
