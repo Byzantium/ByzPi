@@ -292,7 +292,7 @@ class byzpi {
 				'apache2':
 					enable    => true,
 					ensure    => running,
-					subscribe => [Package['apache2']];
+					subscribe => [Package['apache2']],
 					require   => Service['ssl'];
 				'avahiclient':
 					enable    => true,
