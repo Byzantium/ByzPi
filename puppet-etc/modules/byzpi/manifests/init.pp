@@ -24,6 +24,15 @@ class byzpi {
 				group   => root,
 				mode    => 0644,
 				owner   => root;
+			'/etc/apache2/mods-enabled/proxy.load':
+				ensure  => link,
+				target  => '../mods-available/proxy.load';
+			'/etc/apache2/mods-enabled/proxy.conf':
+				ensure  => link,
+				target  => '../mods-available/proxy.conf';
+			'/etc/apache2/mods-enabled/headers.load':
+				ensure  => link,
+				target  => '../mods-available/headers.load';
 			'/etc/avahi':
 				ensure => directory;
 			'/etc/avahi/avahi-daemon.conf':
@@ -284,6 +293,7 @@ class byzpi {
 					enable    => true,
 					ensure    => running,
 					subscribe => [Package['apache2']];
+					require   => Service['ssl'];
 				'avahiclient':
 					enable    => true,
 					ensure    => running,
