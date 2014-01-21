@@ -287,6 +287,8 @@ class byzpi {
 					require => Service['reset_state'];
 				'/usr/sbin/update-rc.d ssl defaults':
 					require => Service['ssl'];
+				'/usr/sbin/update-rc.d rng-tools defaults':
+					require => Service['rng-tools'];
 			}
 			service {
 				'apache2':
