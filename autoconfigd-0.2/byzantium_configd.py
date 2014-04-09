@@ -90,7 +90,8 @@ if len(wireless):
     # you try to configure them too rapidly, meaning that they drop out of
     # ad-hoc mode.
     break_flag = False
-    while True:
+    for try_num in range(3):
+        print "Attempting to configure the wireless interface. Try:", try_num
         # Configure the wireless chipset.
         command = ['/sbin/iwconfig', interface, 'mode', 'ad-hoc']
         subprocess.Popen(command)
