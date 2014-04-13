@@ -45,11 +45,11 @@ if [ "$#" -lt 2 ]; then
     fi
 
 # See if the files passed on the command line exist, and if they don't ABEND.
-if [ ! -f $1 ]; then
+if [ ! -f $2 ]; then
     echo "Error - Kernel image not found."
     exit 1
     fi
-if [ ! -f $2 ]; then
+if [ ! -f $4 ]; then
     echo "Error - Disk image not found."
     exit 1
     fi
@@ -70,8 +70,8 @@ if [ ! "$CPU_FOUND" ]; then
     fi
 
 # Start QEMU in RaspberryPi mode.
-qemu-system-arm -kernel $1 -cpu arm1176 -m 256 -M versatilepb -no-reboot \
-    -serial stdio -append "root=/dev/sda2 panic=1" -hda $2
+qemu-system-arm -kernel $2 -cpu arm1176 -m 256 -M versatilepb -no-reboot \
+    -serial stdio -append "root=/dev/sda2 panic=1" -hda $4
 
 # Fin.
 exit 0
