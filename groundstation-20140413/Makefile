@@ -17,6 +17,7 @@ install:
 	cp groundstation/airshipd.sh $(BINDIR)
 	cp groundstation/stationd.sh $(BINDIR)
 	cp groundstation.init $(INITDIR)/groundstation
+	# Here we use curl to make the initial chat databases...
 
 uninstall:
 	@echo "Uninstalling Groundstation."

@@ -1,0 +1,7 @@
+groundstation (20140413-1) unstable; urgency=low
+
+  * Initial release.
+  * This is a Debian package of today's checkout of the groundstation source
+    code repository.
+
+ -- The Doctor <drwho@virtadpt.net>  Sun, 13 Apr 2014 12:26:11 -0800

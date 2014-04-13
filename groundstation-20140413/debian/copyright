@@ -1,0 +1,26 @@
+This work was packaged for Debian by:
+
+    The Doctor <drwho@virtadpt.net> on Sun, 13 Apr 2014 12:32:08 -0800
+
+It was downloaded from:
+
+    https://github.com/richo/groundstation
+
+Upstream Author(s):
+
+    RichO (http://groundstation.me/)
+
+Copyright:
+
+    RichO (http://groundstation.me/)
+
+Groundstation's License:
+
+    MIT
+
+The Debian packaging files are
+
+    Copyright (C) 2014 The Doctor <drwho@virtadpt.net>
+
+and are licensed under the GPL version 3, see /usr/share/common-licenses/GPL-3.
+

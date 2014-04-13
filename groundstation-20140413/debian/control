@@ -1,0 +1,17 @@
+Source: groundstation
+Section: unknown
+Priority: extra
+Maintainer: The Doctor <drwho@virtadpt.net>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+Homepage: http://groundstation.me/
+Vcs-Git: https://github.com/richo/groundstation.git
+
+Package: groundstation
+Architecture: all
+Depends: build-essential, libgit2, pkg-config, python, python-virtualenv
+Description: Distributed microblog.
+ Groundstation is a distributed microblog that works a little bit like Twitter
+ and a little bit like a message forum.  Messages are posted by users on one
+ node and percolate through the rest of the mesh, updating discussion threads
+ in near-realtime.
