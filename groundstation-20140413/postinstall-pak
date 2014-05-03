@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Preinstallation script for Groundstation.
+DEST=/opt/groundstation
+USER=grounstation
+GROUP=grounstation
+
+# Create the service account.
+/usr/sbin/adduser --system --group groundstation --home /opt/groundstation
+
+# Set file ownerships properly.
+chown -R $USER:$GROUP $DEST
+
+# Debian requires scripts that finish successfully to return 0.
+exit 0
