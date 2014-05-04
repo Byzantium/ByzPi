@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Script that gets run just before the .deb is uninstalled.
+
+# Shut down the service and uninstall it.
+/etc/init.d/groundstation stop
+update-rc.d groundstation remove
+
+# Delete the Git repository that stores the content.
+rm -rf /opt/groundstation/.groundstation
+
+# Fin.
+exit 0
