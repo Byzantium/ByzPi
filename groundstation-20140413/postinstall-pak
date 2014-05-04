@@ -11,5 +11,8 @@ GROUP=grounstation
 # Set file ownerships properly.
 chown -R $USER:$GROUP $DEST
 
+# Enable the initscript.
+update-rc.d groundstation defaults
+
 # Debian requires scripts that finish successfully to return 0.
 exit 0
