@@ -1,7 +1,7 @@
 #!/bin/bash
 ### BEGIN INIT INFO
 # Provides:          ssl
-# Required-Start:    apache2
+# Required-Start:    syslog
 # Required-Stop:     apache2
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
