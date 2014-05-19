@@ -32,6 +32,9 @@ DH=$SERVER_DIR/dhparams.pem
 if [ ! -f /etc/apache2/mods-enabled/ssl.conf ]; then
 	echo "Enabling mod_ssl..."
 	/usr/sbin/a2enmod ssl
+
+        echo "Enabling default SSL site..."
+	/usr/sbin/a2ensite default-ssl
 fi
 
 case "$1" in
