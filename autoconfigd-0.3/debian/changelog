@@ -1,3 +1,16 @@
+autoconfigd (0.3-1) unstable; urgency=low
+
+  * Reworked the configuration loop so that it tries to configure the interface
+    while it's turned down, and if that doesn't work while it's turned up,
+    too.
+
+  * Added a little bit of debugging output.
+
+  * Patched paths for the utilities the configuration daemon calls so they're
+    Debian-specific.
+
+ -- The Doctor <drwho@virtadpt.net>  Sun, 15 Jun 2014 14:28:41 -0800
+
 autoconfigd (0.2-1) unstable; urgency=low
 
   * Synched release of autoconfiguration daemon with the latest version in
