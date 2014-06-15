@@ -101,7 +101,7 @@ if len(wireless):
         # themselves if you try to configure them too rapidly, and they drop
         # out of ad-hoc mode.
         for try_num in range(3):
-            print "Attempting to configure the wireless interface. Try:", try_num
+            print "Attempting to configure the wireless interface.  Try:", try_num
             # Configure the wireless chipset.
             command = ['/sbin/iwconfig', interface, 'mode', 'ad-hoc']
             subprocess.Popen(command)
@@ -159,17 +159,19 @@ if len(wireless):
                 success = True
                 break
             else:
-                print "Failed to setup the interface properly. Retrying..."
+                print "Failed to set up the interface properly.  Retrying..."
     if not success:
+        print "Failed to configure the wireless interface.  Giving up."
         sys.exit(1)
 
     # Turn up the interface if it's not already.
-    if state != 'up':
-        command = ['/sbin/ifconfig', interface, 'up']
-        subprocess.Popen(command)
-        time.sleep(5)
+    print "Turning interface %s up to continue configuration." % interface
+    command = ['/sbin/ifconfig', interface, 'up']
+    subprocess.Popen(command)
+    time.sleep(5)
 
     # Start with the mesh interface.
+    print "Probing for IP address for the mesh interface."
     ip_in_use = 1
     while ip_in_use:
         # Generate a pseudorandom IP address for the mesh interface.
@@ -178,8 +180,10 @@ if len(wireless):
         addr = addr + str(random.randint(1, 254))
 
         # Use arping to see if anyone's claimed it.
-        arping = ['/usr/bin/arping', '-c 5', '-D', '-f', '-q', '-I', interface,
-                  addr]
+        # arping returns 2 on errors, like the network interface not being
+        # online.
+        arping = ['/usr/bin/arping', '-c 5', '-D', '-q', '-f', '-I',
+                  interface, addr]
         ip_in_use = subprocess.call(arping)
 
         # If the IP isn't in use, ip_in_use == 0 so we bounce out of the loop.
@@ -188,6 +192,7 @@ if len(wireless):
     print "Mesh interface address: %s" % mesh_ip
 
     # Now configure the client interface.
+    print "Probing for IP subnet for the client interface."
     ip_in_use = 1
     while ip_in_use:
         # Generate a pseudorandom IP address for the client interface.
@@ -196,8 +201,8 @@ if len(wireless):
         addr = addr + str(random.randint(0, 254)) + '.1'
 
         # Use arping to see if anyone's claimed it.
-        arping = ['/usr/bin/arping', '-c 5', '-D', '-f', '-q', '-I', interface,
-                  addr]
+        arping = ['/usr/bin/arping', '-c 5', '-D', '-q', '-f', '-I',
+                  interface, addr]
         ip_in_use = subprocess.call(arping)
 
         # If the IP isn't in use, ip_in_use==0 so we bounce out of the loop.
@@ -262,17 +267,12 @@ include_file.write(dhcp_range)
 include_file.close()
 
 # Start dnsmasq.
-print "Starting dnsmasq."
 subprocess.Popen(['/etc/init.d/dnsmasq', 'restart'])
 
 # Start olsrd.
 olsrd_command = ['/usr/sbin/olsrd', '-i']
-
-#for i in wireless:
-
 if len(wireless):
     olsrd_command.append(wireless[0])
-
 print "Starting routing daemon."
 subprocess.Popen(olsrd_command)
 time.sleep(5)
